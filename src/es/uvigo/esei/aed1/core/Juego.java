@@ -18,6 +18,11 @@ public Juego(IU iu){
 }
 
 public void jugar(){
+	//preguntar cuantos van a jugar
+	//crear los jugadores
+	//repartir las cartas entre los jugadores
+	//mostrar el estado de los jugadores
+	//indicar quien empieza la partida
     
 }
 
