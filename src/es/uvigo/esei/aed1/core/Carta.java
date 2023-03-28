@@ -9,7 +9,7 @@ public class Carta {
     private int numero;
     private int palo;
 
-    private final String[] palos = new String[]{"OROS","Espadas","Copas","Bastos"};
+    private final String[] palos = new String[]{"Oros","Espadas","Copas","Bastos"};
 
     public Carta(int numero, int palo) {
         this.numero = numero;
