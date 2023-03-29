@@ -18,6 +18,12 @@ public class Baraja {
     }
 
 	public void crearBaraja() {
+		for(Carta.PALOS palo : Carta.PALOS.values()) {
+			for(int i = 1; i <= 12; i++) {
+				Carta nuevaCarta = new Carta(i, palo);
+				baraja.add(nuevaCarta);
+			}
+		}
 	}
    
     public static void barajar(List<Carta> baraja){
