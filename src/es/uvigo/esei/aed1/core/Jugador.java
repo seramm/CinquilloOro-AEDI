@@ -5,9 +5,32 @@
  */
 
 package es.uvigo.esei.aed1.core;
-
+import lista.*;
 
 
 public class Jugador {
+    private String nombre;
+    private Lista<Carta> mano = new ListaEnlazada<>();
 
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Lista<Carta> getMano() {
+        return mano;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setMano(Lista<Carta> mano) {
+        this.mano = mano;
+    }
+    
+    
 }

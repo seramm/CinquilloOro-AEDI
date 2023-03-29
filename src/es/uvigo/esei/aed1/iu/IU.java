@@ -5,6 +5,7 @@
 
 package es.uvigo.esei.aed1.iu;
 
+import lista.*;
 import es.uvigo.esei.aed1.core.Jugador;
 import java.util.Collection;
 import java.util.InputMismatchException;
@@ -56,11 +57,19 @@ public class IU {
 
 
 
-//    public Collection<String> pedirDatosJugadores(){
-//
-//
-//
-//    }
+    public Lista<Jugador> pedirDatosJugadores(){
+        int n;
+        String nombre;
+        Jugador j;
+        Lista<Jugador> jugadores = new ListaEnlazada<>();
+        n = leeNum("Introduce número de jugadores");
+        for (int i = 0; i < n; i++) {
+            nombre = leeString("Introduce nombre del jugador "+(i+1));
+            j = new Jugador(nombre);
+            jugadores.insertarPrincipio(j);
+        }
+        return jugadores;
+    }
 
 
 
