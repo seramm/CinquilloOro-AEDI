@@ -63,7 +63,10 @@ public class IU {
         String nombre;
         Jugador j;
         List<Jugador> jugadores = new LinkedList<>();
-        n = leeNum("Introduce número de jugadores");
+        do{
+            n = leeNum("Introduce número de jugadores");
+        }while(n<3 && n>4);
+        
         for (int i = 0; i < n; i++) {
             nombre = leeString("Introduce nombre del jugador "+(i+1));
             j = new Jugador(nombre);
