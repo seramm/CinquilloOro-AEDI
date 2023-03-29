@@ -58,16 +58,17 @@ public class IU {
 
     public List<Jugador> pedirDatosJugadores() {
         int n;
-        String nombre;
-        Jugador j;
         List<Jugador> jugadores = new LinkedList<>();
         do {
             n = leeNum("Introduce número de jugadores: ");
         } while (n < 3 && n > 4);
 
+        System.out.print("\n");
+
         for (int i = 0; i < n; i++) {
+            String nombre;
             nombre = leeString("Introduce nombre del jugador " + (i + 1) + ": ");
-            j = new Jugador(nombre);
+            Jugador j = new Jugador(nombre);
             jugadores.add(0, j);
         }
         return jugadores;
