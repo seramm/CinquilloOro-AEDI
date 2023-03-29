@@ -5,24 +5,25 @@
  */
 
 package es.uvigo.esei.aed1.core;
-import lista.*;
+import java.util.List;
+import java.util.LinkedList;
 
 
 public class Baraja {
 
-    Lista<Carta> baraja = new ListaEnlazada<>();
+    List<Carta> baraja = new LinkedList<>();
     Carta carta;
     
     public Baraja(){
         for(int j = 0; j < 4; j++){
             for (int i = 0; i < 12; i++) {
                carta = new Carta(i+1,j);
-               baraja.insertarPrincipio(carta);
+               baraja.add(0, carta);
             }
         }
     }
    
-    public static void barajar(Lista<Carta> baraja){
+    public static void barajar(List<Carta> baraja){
  
     }
    
