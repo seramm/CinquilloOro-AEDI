@@ -16,8 +16,11 @@ public class Carta {
         this.palo = palo;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(int numero) throws Exception {
         this.numero = numero;
+		if(numero < 1 || numero > 12) {
+			throw new Exception("Número de carta no válido. No se encuentra en 1 y 12.");
+		}
     }
 
     public void setPalo(int palo) {
