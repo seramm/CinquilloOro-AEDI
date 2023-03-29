@@ -5,12 +5,13 @@
  */
 
 package es.uvigo.esei.aed1.core;
-import lista.*;
+import java.util.List;
+import java.util.LinkedList;
 
 
 public class Jugador {
     private String nombre;
-    private Lista<Carta> mano = new ListaEnlazada<>();
+    private List<Carta> mano = new LinkedList<>();
 
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -20,7 +21,7 @@ public class Jugador {
         return nombre;
     }
 
-    public Lista<Carta> getMano() {
+    public List<Carta> getMano() {
         return mano;
     }
 
@@ -28,7 +29,7 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void setMano(Lista<Carta> mano) {
+    public void setMano(List<Carta> mano) {
         this.mano = mano;
     }
     
