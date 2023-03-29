@@ -11,17 +11,14 @@ import java.util.LinkedList;
 
 public class Baraja {
 
-    List<Carta> baraja = new LinkedList<>();
-    Carta carta;
+    private List<Carta> baraja = new LinkedList<>();
     
-    public Baraja(){
-        for(int j = 0; j < 4; j++){
-            for (int i = 0; i < 12; i++) {
-               carta = new Carta(i+1,j);
-               baraja.add(0, carta);
-            }
-        }
+    public Baraja(List<Carta> baraja){
+		this.baraja = baraja;
     }
+
+	public void crearBaraja() {
+	}
    
     public static void barajar(List<Carta> baraja){
  
