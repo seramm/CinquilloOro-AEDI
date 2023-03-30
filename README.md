@@ -2,6 +2,7 @@
 
 
 ### Tipos Abstractos de Datos:
+No usar los TAD incluídos en `aed1.jar`, usamos las clases incluidas en `java.util`. Las APIs correspondientes son las siguientes:
 - [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html): `java.util.List`
 - [Lista enlazada](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html): `java.util.LinkedList`
 - [Cola](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html): `java.util.Queue`
