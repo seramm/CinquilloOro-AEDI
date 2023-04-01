@@ -1,38 +1,40 @@
 /**
- * Representa la interfaz del juego del Cinquillo-Oro, en este proyecto va a ser una entrada/salida en modo texto 
+ * Representa la interfaz del juego del Cinquillo-Oro, en este proyecto va a ser una entrada/salida en modo texto
  * Se recomienda una implementación modular.
  */
-
 package es.uvigo.esei.aed1.iu;
 
+import java.util.List;
+import java.util.LinkedList;
 import es.uvigo.esei.aed1.core.Jugador;
 import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IU {
+
     private final Scanner teclado;
 
     public IU() {
-            teclado = new Scanner(System.in).useDelimiter("\r?\n");
+        teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
 
     /**
      * Lee un num. de teclado
-     * 
+     *
      * @param msg El mensaje a visualizar.
      * @return El num., como entero
      */
     public int leeNum(String msg) {
         do {
-                System.out.print(msg);
+            System.out.print(msg);
 
-                try {
-                        return teclado.nextInt();
-                } catch (InputMismatchException exc) {
-                        teclado.next();
-                        System.out.println("Entrada no válida. Debe ser un entero.");
-                }
+            try {
+                return teclado.nextInt();
+            } catch (InputMismatchException exc) {
+                teclado.next();
+                System.out.println("Entrada no válida. Debe ser un entero.");
+            }
         } while (true);
     }
 
@@ -54,23 +56,30 @@ public class IU {
         System.out.printf(msg, args);
     }
 
+    public List<Jugador> pedirDatosJugadores() {
+        int n;
+        List<Jugador> jugadores = new LinkedList<>();
+        do {
+            n = leeNum("Introduce número de jugadores: ");
+        } while (n < 3 && n > 4);
 
+        System.out.print("\n");
 
-//    public Collection<String> pedirDatosJugadores(){
-//
-//
-//
-//    }
+        for (int i = 0; i < n; i++) {
+            String nombre;
+            nombre = leeString("Introduce nombre del jugador " + (i + 1) + ": ");
+            Jugador j = new Jugador(nombre);
+            jugadores.add(0, j);
+        }
+        return jugadores;
+    }
 
-
-
-    public void mostrarJugador(Jugador jugador){
+    public void mostrarJugador(Jugador jugador) {
 
     }
 
-    public void mostrarJugadores(Collection<Jugador> jugadores){
+    public void mostrarJugadores(Collection<Jugador> jugadores) {
 
     }
-   
-    
+
 }
