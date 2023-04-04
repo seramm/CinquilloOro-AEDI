@@ -30,7 +30,7 @@ public class Baraja {
 
 	public void barajarBaraja() {
 		Random randomness = new Random(System.currentTimeMillis());
-		Collections.shuffle(baraja);
+		Collections.shuffle(baraja, randomness);
 	}
 
 }
