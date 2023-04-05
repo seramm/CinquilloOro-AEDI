@@ -21,7 +21,6 @@ public class Baraja {
 
 	/**
 	 * Crea una lista de cartas, la baraja.
-	 * @param baraja
 	 */
 	public Baraja(List<Carta> baraja) {
 		this.baraja = baraja;
