@@ -11,7 +11,6 @@ public class Carta {
 	private int numero;
 	private PALOS palo;
 
-	//private final String[] palos = new String[]{"Oros","Espadas","Copas","Bastos"};
 	public Carta(int numero, PALOS palo) {
 		this.numero = numero;
 		this.palo = palo;
