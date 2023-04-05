@@ -5,8 +5,11 @@
  */
 package es.uvigo.esei.aed1.core;
 
+import java.security.SecureRandom;
+import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Baraja {
 
@@ -25,8 +28,9 @@ public class Baraja {
 		}
 	}
 
-	public static void barajar(List<Carta> baraja) {
-
+	public void barajarBaraja() {
+		Random randomness = new Random(System.currentTimeMillis());
+		Collections.shuffle(baraja, randomness);
 	}
 
 }
