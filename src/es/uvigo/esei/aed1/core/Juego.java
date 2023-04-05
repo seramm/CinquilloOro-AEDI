@@ -5,8 +5,6 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
-import es.uvigo.esei.aed1.core.Baraja;
-import es.uvigo.esei.aed1.core.Jugador;
 import java.util.LinkedList;
 import java.util.List;
 
