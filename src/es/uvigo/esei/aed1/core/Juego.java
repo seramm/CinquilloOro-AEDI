@@ -26,7 +26,7 @@ public void jugar(){
 	//repartir las cartas entre los jugadores
 	//mostrar el estado de los jugadores
 	//indicar quien empieza la partida
-   jugadores = iu.pedirDatosJugadores();
+   jugadores = iu.leeDatosJugadores();
 }
 
         
