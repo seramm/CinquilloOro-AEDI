@@ -19,6 +19,10 @@ public class Baraja {
 		this.baraja = baraja;
 	}
 
+	public List<Carta> getBaraja() {
+		return baraja;
+	}
+
 	public void crearBaraja() {
 		for (Carta.PALOS palo : Carta.PALOS.values()) {
 			for (int i = 1; i <= 12; i++) {
