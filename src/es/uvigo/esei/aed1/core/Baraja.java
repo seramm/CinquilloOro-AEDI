@@ -38,7 +38,7 @@ public class Baraja {
 	}
 
 	/**
-	 * Mezcla(baraja) las cartas pertenecientes a la baraja.
+	 * Mezcla las cartas pertenecientes a la baraja.
 	 */
 	public void barajarBaraja() {
 		Random randomness = new Random(System.currentTimeMillis());
