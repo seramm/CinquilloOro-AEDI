@@ -32,8 +32,7 @@ public class Juego {
 		// Reparto de la baraja
 		while (!baraja.getBaraja().isEmpty()) {
 			for (Jugador i : jugadores) {
-				Carta carta = baraja.getBaraja().remove(0); // La carta que se coge se guarda en carta y se elimina de la baraja.
-				i.anadirCarta(carta);
+				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 			}
 		}
 	}
