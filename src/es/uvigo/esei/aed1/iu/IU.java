@@ -56,7 +56,7 @@ public class IU {
         System.out.printf(msg, args);
     }
 
-    public List<Jugador> pedirDatosJugadores() {
+    public List<Jugador> leeDatosJugadores() {
         int n;
         List<Jugador> jugadores = new LinkedList<>();
         do {
