@@ -5,10 +5,13 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Juego {
 
 	private final IU iu;
+	private List<Jugador> jugadores = new LinkedList<>();
 
 	public Juego(IU iu) {
 		this.iu = iu;
@@ -21,7 +24,7 @@ public class Juego {
 		//repartir las cartas entre los jugadores
 		//mostrar el estado de los jugadores
 		//indicar quien empieza la partida
-
+		jugadores = iu.leeDatosJugadores();
 	}
 
 }
