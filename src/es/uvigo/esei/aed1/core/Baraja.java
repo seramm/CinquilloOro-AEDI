@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 /**
- *
+ * Clase que incluye la lista de cartas, una baraja.
  * @author seram
  */
 public class Baraja {
