@@ -3,19 +3,34 @@
  */
 package es.uvigo.esei.aed1.core;
 
+/**
+ * Representa una carta, formada por un número y su palo correspondiente.
+ * @author seram
+ */
 public class Carta {
 
+	/**
+	 * Enumerado de los palos disponibles
+	 */
 	public enum PALOS {
 		BASTOS, COPAS, ESPADAS, OROS
 	};
 	private int numero;
 	private PALOS palo;
 
+	/**
+	 * Define una carta con su número y palo
+	 */
 	public Carta(int numero, PALOS palo) {
 		this.numero = numero;
 		this.palo = palo;
 	}
 
+	/**
+	 * Cambia el número de la carta.
+	 * @param numero número de la carta.
+	 * @throws Exception si el número no se encuentra entre 1 y 12, incluídos.
+	 */
 	public void setNumero(int numero) throws Exception {
 		this.numero = numero;
 		if (numero < 1 || numero > 12) {
@@ -23,14 +38,26 @@ public class Carta {
 		}
 	}
 
+	/**
+	 * Cambia el palo de la carta.
+	 * @param palo palo de la carta.
+	 */
 	public void setPalo(PALOS palo) {
 		this.palo = palo;
 	}
 
+	/**
+	 * Devuelve el número de la carta.
+	 * @return el número de la carta.
+	 */
 	public int getNumero() {
 		return numero;
 	}
 
+	/**
+	 * Devuelve el palo de la carta.
+	 * @return el palo de la carta
+	 */
 	public PALOS getPalo() {
 		return palo;
 	}
