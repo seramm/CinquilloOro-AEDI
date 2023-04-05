@@ -11,14 +11,25 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ *
+ * @author seram
+ */
 public class Baraja {
 
 	private List<Carta> baraja = new LinkedList<>();
 
+	/**
+	 * Crea una lista de cartas, la baraja.
+	 * @param baraja
+	 */
 	public Baraja(List<Carta> baraja) {
 		this.baraja = baraja;
 	}
 
+	/**
+	 * Rellena la lista baraja de manera ordenada con todas las cartas del 1 al 12 de los 4 palos(bastos, copas, espadas y oros).
+	 */
 	public void crearBaraja() {
 		for (Carta.PALOS palo : Carta.PALOS.values()) {
 			for (int i = 1; i <= 12; i++) {
@@ -28,6 +39,9 @@ public class Baraja {
 		}
 	}
 
+	/**
+	 * Mezcla(baraja) las cartas pertenecientes a la baraja.
+	 */
 	public void barajarBaraja() {
 		Random randomness = new Random(System.currentTimeMillis());
 		Collections.shuffle(baraja, randomness);
