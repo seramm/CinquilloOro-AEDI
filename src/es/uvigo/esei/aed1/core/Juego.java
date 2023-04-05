@@ -5,12 +5,15 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
+import es.uvigo.esei.aed1.core.Baraja;
+import es.uvigo.esei.aed1.core.Jugador;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Juego {
 
 	private final IU iu;
+	private Baraja baraja;
 	private List<Jugador> jugadores = new LinkedList<>();
 
 	public Juego(IU iu) {
@@ -25,6 +28,15 @@ public class Juego {
 		//mostrar el estado de los jugadores
 		//indicar quien empieza la partida
 		jugadores = iu.leeDatosJugadores();
+
+		// Reparto de la baraja
+		while (!baraja.getBaraja().isEmpty()) {
+			Carta carta = baraja.getBaraja().remove(0); // La carta que se coge se guarda en carta y se elimina de la baraja.
+
+			for (Jugador i : jugadores) {
+				i.anadirCarta(carta);
+			}
+		}
 	}
 
 }
