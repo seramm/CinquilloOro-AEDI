@@ -5,7 +5,6 @@
  */
 package es.uvigo.esei.aed1.core;
 
-import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
