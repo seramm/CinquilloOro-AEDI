@@ -48,7 +48,7 @@ public class Carta {
 
 	/**
 	 * Devuelve el número de la carta.
-	 * @return el número de la carta.
+	 * @return el número de la carta, como entero.
 	 */
 	public int getNumero() {
 		return numero;
@@ -56,7 +56,7 @@ public class Carta {
 
 	/**
 	 * Devuelve el palo de la carta.
-	 * @return el palo de la carta
+	 * @return el palo de la carta, como Carta.PALO.
 	 */
 	public PALOS getPalo() {
 		return palo;

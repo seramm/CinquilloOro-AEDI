@@ -26,7 +26,7 @@ public class Jugador {
 
 	/**
 	 * Devuelve el nombre del jugador.
-	 * @return nombre del jugador.
+	 * @return nombre del jugador, como String.
 	 */
 	public String getNombre() {
         return nombre;
@@ -34,7 +34,7 @@ public class Jugador {
 
 	/**
 	 * Devuelve la mano del jugador.
-	 * @return mano que tiene el jugador.
+	 * @return mano que tiene el jugador, como List.
 	 */
 	public List<Carta> getMano() {
         return mano;
