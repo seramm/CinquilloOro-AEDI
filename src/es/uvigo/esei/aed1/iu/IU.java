@@ -11,19 +11,26 @@ import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Clase que contiene la entrada/salida.
+ * @author seram
+ */
 public class IU {
 
     private final Scanner teclado;
 
-    public IU() {
+	/**
+	 * Crea una interfaz de usuario, añadiendo una nueva entrada.
+	 */
+	public IU() {
         teclado = new Scanner(System.in).useDelimiter("\r?\n");
     }
 
     /**
-     * Lee un num. de teclado
+     * Lee un entero introducido de teclado.
      *
-     * @param msg El mensaje a visualizar.
-     * @return El num., como entero
+     * @param msg el mensaje a visualizar.
+     * @return el número, como entero
      */
     public int leeNum(String msg) {
         do {
@@ -38,25 +45,49 @@ public class IU {
         } while (true);
     }
 
-    public String leeString(String msg) {
+	/**
+	 * Lee un String introducido de teclado.
+	 * @param msg el mensaje a visualizar.
+	 * @return el String.
+	 */
+	public String leeString(String msg) {
         System.out.print(msg);
         return teclado.next();
     }
 
-    public String leeString(String msg, Object... args) {
+	/**
+	 * Lee un String introducido de teclado.
+	 * @param msg el mensaje a visualizar.
+	 * @param args parámetros para la visualización
+	 * @return el String.
+	 */
+	public String leeString(String msg, Object... args) {
         System.out.printf(msg, args);
         return teclado.next();
     }
 
-    public void mostrarMensaje(String msg) {
+	/**
+	 * Muestra por pantalla un mensaje.
+	 * @param msg el mensaje a mostrar.
+	 */
+	public void mostrarMensaje(String msg) {
         System.out.println(msg);
     }
 
-    public void mostrarMensaje(String msg, Object... args) {
+	/**
+	 * Muestra por pantalla un mensaje.
+	 * @param msg el mensaje a mostrar
+	 * @param args parámetros para la visualización.
+	 */
+	public void mostrarMensaje(String msg, Object... args) {
         System.out.printf(msg, args);
     }
 
-    public List<Jugador> leeDatosJugadores() {
+	/**
+	 * Lee por teclado el número de jugadores y sus nombres.
+	 * @return lista de jugadores, como List.
+	 */
+	public List<Jugador> leeDatosJugadores() {
         int n;
         List<Jugador> jugadores = new LinkedList<>();
         do {
@@ -74,11 +105,19 @@ public class IU {
         return jugadores;
     }
 
-    public void mostrarJugador(Jugador jugador) {
+	/**
+	 *
+	 * @param jugador
+	 */
+	public void mostrarJugador(Jugador jugador) {
 
     }
 
-    public void mostrarJugadores(Collection<Jugador> jugadores) {
+	/**
+	 *
+	 * @param jugadores
+	 */
+	public void mostrarJugadores(Collection<Jugador> jugadores) {
 
     }
 
