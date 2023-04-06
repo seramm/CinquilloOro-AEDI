@@ -8,28 +8,51 @@ package es.uvigo.esei.aed1.core;
 import java.util.List;
 import java.util.LinkedList;
 
-
+/**
+ * Clase que representa un jugador con su nombre y cartas.
+ * @author seram
+ */
 public class Jugador {
     private String nombre;
     private List<Carta> mano = new LinkedList<>();
 
-    public Jugador(String nombre) {
+	/**
+	 * Crea un jugador con su nombre.
+	 * @param nombre nombre del jugador.
+	 */
+	public Jugador(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getNombre() {
+	/**
+	 * Devuelve el nombre del jugador.
+	 * @return nombre del jugador.
+	 */
+	public String getNombre() {
         return nombre;
     }
 
-    public List<Carta> getMano() {
+	/**
+	 * Devuelve la mano del jugador.
+	 * @return mano que tiene el jugador.
+	 */
+	public List<Carta> getMano() {
         return mano;
     }
 
-    public void setNombre(String nombre) {
+	/**
+	 * Cambia el nombre del jugador.
+	 * @param nombre nombre del jugador.
+	 */
+	public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setMano(List<Carta> mano) {
+	/**
+	 * Cambia la mano del jugador.
+	 * @param mano mano del jugador.
+	 */
+	public void setMano(List<Carta> mano) {
         this.mano = mano;
     }
     
