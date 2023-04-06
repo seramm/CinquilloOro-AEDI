@@ -8,16 +8,27 @@ import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Clase que contiene la lógica interna del juego.
+ * @author seram
+ */
 public class Juego {
 
 	private final IU iu;
 	private List<Jugador> jugadores = new LinkedList<>();
 
+	/**
+	 * Crea un juego con su interfaz de usuario.
+	 * @param iu interfaz de usuario del juego.
+	 */
 	public Juego(IU iu) {
 		this.iu = iu;
 
 	}
 
+	/**
+	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las cartas e inicia el juego.
+	 */
 	public void jugar() {
 		//preguntar cuantos van a jugar
 		//crear los jugadores
