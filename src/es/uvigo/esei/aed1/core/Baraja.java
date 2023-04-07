@@ -27,7 +27,7 @@ public class Baraja {
 
 	/**
 	 * Devuelve la baraja
-	 * @return Devuele una lista de cartas, como List.
+	 * @return devuele una lista de cartas, como List.
 	 */
 	public List<Carta> getBaraja() {
 		return baraja;
