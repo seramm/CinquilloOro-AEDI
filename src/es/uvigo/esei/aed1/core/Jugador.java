@@ -33,8 +33,18 @@ public class Jugador {
         this.mano = mano;
     }
     
-	public void anadirCarta(Carta carta) {
-		mano.add(carta);
-	}
+    public void anadirCarta(Carta carta) {
+	mano.add(carta);
+    }
+    
+    public void mostrarCartas() {
+        System.out.println(nombre + " tiene las siguientes cartas: ");
+        for (Carta carta : mano)
+        {
+            System.out.println(carta);
+        }
+    }
+        
+    
     
 }
