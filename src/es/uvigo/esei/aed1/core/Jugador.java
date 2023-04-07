@@ -3,8 +3,8 @@
  * Estructura mano: se utilizará un TAD adecuado
  * Funcionalidad: Añadir carta a la mano, convertir a String el objeto Jugador (toString)
  */
-
 package es.uvigo.esei.aed1.core;
+
 import java.util.List;
 import java.util.LinkedList;
 
@@ -13,8 +13,8 @@ import java.util.LinkedList;
  * @author seram
  */
 public class Jugador {
-    private String nombre;
-    private List<Carta> mano = new LinkedList<>();
+	private String nombre;
+	private List<Carta> mano = new LinkedList<>();
 
 	/**
 	 * Crea un jugador con su nombre.
@@ -63,5 +63,19 @@ public class Jugador {
 	public void anadirCarta(Carta carta) {
 		mano.add(carta);
 	}
-    
+
+	@Override
+	public String toString() {
+		StringBuilder toret = new StringBuilder();
+
+		toret.append("Jugador: ").append(nombre).append("\n");
+		toret.append("Cartas:");
+
+		for (Carta carta : mano) {
+			toret.append(carta.toString());
+		}
+
+		return toret.toString();
+	}
+
 }
