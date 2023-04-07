@@ -33,13 +33,11 @@ public class Juego {
 				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 			}
 		}
-                
-                //Mostrar la mano de cada jugador
-                
-                for (Jugador jugador: jugadores)
-                {
-                    jugador.toString();
-                }
+
+		//Mostrar la mano de cada jugador
+		for (Jugador jugador : jugadores) {
+			jugador.toString();
+		}
 	}
 
 }
