@@ -11,6 +11,7 @@ import java.util.List;
 public class Juego {
 
 	private final IU iu;
+	private Baraja baraja;
 	private List<Jugador> jugadores = new LinkedList<>();
 
 	public Juego(IU iu) {
@@ -25,6 +26,13 @@ public class Juego {
 		//mostrar el estado de los jugadores
 		//indicar quien empieza la partida
 		jugadores = iu.leeDatosJugadores();
+
+		// Reparto de la baraja
+		while (!baraja.getBaraja().isEmpty()) {
+			for (Jugador i : jugadores) {
+				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+			}
+		}
 	}
 
 }

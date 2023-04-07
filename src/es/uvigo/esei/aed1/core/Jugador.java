@@ -33,5 +33,8 @@ public class Jugador {
         this.mano = mano;
     }
     
+	public void anadirCarta(Carta carta) {
+		mano.add(carta);
+	}
     
 }
