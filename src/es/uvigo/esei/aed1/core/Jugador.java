@@ -47,7 +47,7 @@ public class Jugador {
         
         for (Carta carta : mano)
         {
-            toret.append(carta);
+            toret.append(carta.toString());
         }
         
         return toret.toString();
