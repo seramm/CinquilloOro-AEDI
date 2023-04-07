@@ -25,6 +25,10 @@ public class Baraja {
 		this.baraja = baraja;
 	}
 
+	public List<Carta> getBaraja() {
+		return baraja;
+	}
+
 	/**
 	 * Rellena la lista baraja de manera ordenada con todas las cartas del 1 al 12 de los 4 palos(bastos, copas, espadas y oros).
 	 */
