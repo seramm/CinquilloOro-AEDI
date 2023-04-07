@@ -56,6 +56,10 @@ public class Jugador {
         this.mano = mano;
     }
     
+	/**
+	 * Añade una carta a la mano del jugador.
+	 * @param carta la carta a añadir.
+	 */
 	public void anadirCarta(Carta carta) {
 		mano.add(carta);
 	}
