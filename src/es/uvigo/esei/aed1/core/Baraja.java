@@ -25,6 +25,10 @@ public class Baraja {
 		this.baraja = baraja;
 	}
 
+	/**
+	 * Devuelve la baraja
+	 * @return Devuele una lista de cartas, como List.
+	 */
 	public List<Carta> getBaraja() {
 		return baraja;
 	}
