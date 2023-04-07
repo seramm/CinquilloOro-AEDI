@@ -37,13 +37,21 @@ public class Jugador {
 	mano.add(carta);
     }
     
-    public void mostrarCartas() {
-        System.out.println(nombre + " tiene las siguientes cartas: ");
+    @Override
+    public String toString()
+    {
+        StringBuilder toret = new StringBuilder();
+        
+        toret.append("Jugador: " + nombre).append("\n");
+        toret.append("Cartas:");
+        
         for (Carta carta : mano)
         {
-            System.out.println(carta);
+            toret.append(carta);
         }
-    }
+        
+        return toret.toString();
+    }  
         
     
     

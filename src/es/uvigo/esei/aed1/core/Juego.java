@@ -38,7 +38,7 @@ public class Juego {
                 
                 for (Jugador jugador: jugadores)
                 {
-                    jugador.mostrarCartas();
+                    jugador.toString();
                 }
 	}
 
