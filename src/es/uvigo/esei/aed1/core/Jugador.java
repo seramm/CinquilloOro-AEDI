@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class Jugador {
+
 	private String nombre;
 	private List<Carta> mano = new LinkedList<>();
 
@@ -41,12 +42,11 @@ public class Jugador {
 		StringBuilder toret = new StringBuilder();
 
 		toret.append("Jugador: ").append(nombre).append("\n");
-		toret.append("Cartas:");
+		toret.append("\tCartas:");
 
 		for (Carta carta : mano) {
-			toret.append(carta.toString());
+			toret.append(carta.toString()).append(", ");
 		}
-
 		return toret.toString();
 	}
 
