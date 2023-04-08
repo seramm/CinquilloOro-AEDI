@@ -36,7 +36,7 @@ public class Juego {
 
 		//Mostrar la mano de cada jugador
 		for (Jugador jugador : jugadores) {
-			jugador.toString();
+			iu.mostrarMensaje(jugador.toString());
 		}
 	}
 
