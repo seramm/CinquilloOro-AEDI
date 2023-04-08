@@ -41,12 +41,11 @@ public class Jugador {
 		StringBuilder toret = new StringBuilder();
 
 		toret.append("Jugador: ").append(nombre).append("\n");
-		toret.append("Cartas:").append("\n");
+		toret.append("\tCartas:");
 
 		for (Carta carta : mano) {
 			
-                        toret.append(carta.toString());
-                        toret.append(", ");
+                toret.append(carta.toString()).append(", ");
                         
 		}
 
