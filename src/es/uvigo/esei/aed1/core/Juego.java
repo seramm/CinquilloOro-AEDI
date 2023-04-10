@@ -39,7 +39,7 @@ public class Juego {
 		}
 		//Mostrar la mano de cada jugador
 		for (Jugador jugador : jugadores) {
-			iu.mostrarmensaje(jugador.toString());
+			iu.mostrarMensaje(jugador.toString());
 		}
 	}
 
