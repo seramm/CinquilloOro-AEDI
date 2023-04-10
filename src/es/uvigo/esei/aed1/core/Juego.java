@@ -36,10 +36,10 @@ public class Juego {
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
 	}
-        
-        public void aleatorio(List<Jugador> jugadores){
-            Random rand = new Random();
-            iu.mostrarMensaje(jugadores.get(rand.nextInt(jugadores.size())).toString());
-        }
+
+	public void aleatorio(List<Jugador> jugadores) {
+		Random rand = new Random();
+		iu.mostrarMensaje(jugadores.get(rand.nextInt(jugadores.size())).toString());
+	}
 
 }
