@@ -43,7 +43,7 @@ public class Juego {
 		for(int i = 0; i < 50; i++) {
 			separador.append('#');
 		}
-		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n\n").append(separador);
+		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
 		iu.mostrarMensaje(inicio.toString());
 
 		iu.mostrarMensaje("\nCreando baraja");
