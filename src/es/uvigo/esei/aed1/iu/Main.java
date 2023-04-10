@@ -1,4 +1,8 @@
-//Grupo: 6 de Copas
+/**
+ * Cinquillo Oro - AEDI
+ * 6 de Copas
+ * https://github.com/seramm/CinquilloOro-AEDI
+ */
 package es.uvigo.esei.aed1.iu;
 
 import es.uvigo.esei.aed1.core.Juego;
