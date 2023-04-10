@@ -35,14 +35,16 @@ public class Juego {
 		}
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
-                //Mostrar jugador que empieza
-                iu.mostrarMensaje("Empieza el jugador: ");
-                aleatorio();
+		//Mostrar jugador que empieza
+		aleatorio();
 	}
 
 	public void aleatorio() {
 		Random rand = new Random();
-		iu.mostrarMensaje(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		StringBuilder text = new StringBuilder();
+		text.append("\nEl jugador inicial es: ");
+		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		iu.mostrarMensaje(text.toString());
 	}
 
 }
