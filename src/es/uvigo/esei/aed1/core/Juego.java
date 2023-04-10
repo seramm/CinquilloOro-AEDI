@@ -38,9 +38,22 @@ public class Juego {
 	 * cartas y selecciona el jugador inicial.
 	 */
 	public void jugar() {
-		barajaClass.crearBaraja();
-		barajaClass.barajarBaraja();
-		jugadores = iu.leeDatosJugadores();
+		StringBuilder separador = new StringBuilder();
+		StringBuilder inicio = new StringBuilder();
+		for(int i = 0; i < 50; i++) {
+			separador.append('#');
+		}
+		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n\n").append(separador);
+		iu.mostrarMensaje(inicio.toString());
+
+		iu.mostrarMensaje("\nCreando baraja");
+		barajaClass.crearBaraja();			// Rellenado de la baraja
+		iu.mostrarMensaje("Baraja creada\nBarajando");
+		barajaClass.barajarBaraja();		// Barajado
+		iu.mostrarMensaje("Baraja mezclada\n\n");
+		jugadores = iu.leeDatosJugadores();	// Lectura de jugadores
+
+		iu.mostrarMensaje("\nRepartiendo cartas");
 		// Reparto de la baraja
 		while (!barajaClass.getBaraja().isEmpty()) {
 			for (Jugador i : jugadores) {
@@ -50,7 +63,7 @@ public class Juego {
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
 		//Mostrar jugador que empieza
-		jugadorAleatorio("El jugador inicial es: ");
+		jugadorAleatorio("\tEl jugador inicial es: ");
 	}
 
 	/**
@@ -59,6 +72,7 @@ public class Juego {
 	 * @param msg texto a mostrar antes del jugador seleccionado.
 	 */
 	public void jugadorAleatorio(String msg) {
+		iu.mostrarMensaje("\n\nEscogiendo jugador aleatorio");
 		Random rand = new Random(System.currentTimeMillis());
 		StringBuilder text = new StringBuilder();
 		text.append(msg);

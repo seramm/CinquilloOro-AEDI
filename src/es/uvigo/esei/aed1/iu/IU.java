@@ -104,7 +104,7 @@ public class IU {
 
 		for (int i = 0; i < n; i++) {
 			String nombre;
-			nombre = leeString("Introduce nombre del jugador " + (i + 1) + ": ");
+			nombre = leeString("\tIntroduce nombre del jugador " + (i + 1) + ": ");
 			Jugador j = new Jugador(nombre);
 			jugadores.add(0, j);
 		}
@@ -127,6 +127,7 @@ public class IU {
 	 * @param jugadores jugadores a mostrar.
 	 */
 	public void mostrarJugadores(Collection<Jugador> jugadores) {
+		mostrarMensaje("Mostrando jugadores\n");
 		for (Jugador jugador : jugadores) {
 			mostrarJugador(jugador);
 		}
