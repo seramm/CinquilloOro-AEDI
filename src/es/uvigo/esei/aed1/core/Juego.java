@@ -50,6 +50,10 @@ public class Juego {
 		jugadorAleatorio("El jugador inicial es: ");
 	}
 
+	/**
+	 * Escoge un jugador aleatorio de los contenidos en List<Jugador> jugadores.
+	 * @param msg texto a mostrar antes del jugador seleccionado.
+	 */
 	public void jugadorAleatorio(String msg) {
 		Random rand = new Random();
 		StringBuilder text = new StringBuilder();
