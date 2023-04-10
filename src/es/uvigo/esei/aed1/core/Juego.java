@@ -39,7 +39,7 @@ public class Juego {
 
 	public void aleatorio(List<Jugador> jugadores) {
 		Random rand = new Random();
-		iu.mostrarMensaje(jugadores.get(rand.nextInt(jugadores.size())).toString());
+		iu.mostrarJugador(jugadores.get(rand.nextInt(jugadores.size())));
 	}
 
 }
