@@ -104,7 +104,9 @@ public class IU {
 
 		for (int i = 0; i < n; i++) {
 			String nombre;
-			nombre = leeString("\tIntroduce nombre del jugador " + (i + 1) + ": ");
+			do {
+				nombre = leeString("\tIntroduce nombre del jugador " + (i + 1) + ": ");
+			} while (nombre.isBlank() || nombre.isEmpty());
 			Jugador j = new Jugador(nombre);
 			jugadores.add(0, j);
 		}
