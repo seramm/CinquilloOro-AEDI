@@ -48,10 +48,11 @@ public class Juego {
 
 		iu.mostrarMensaje("\nCreando baraja");
 		barajaClass.crearBaraja();			// Rellenado de la baraja
-		iu.mostrarMensaje("Baraja creada\nBarajando");
-		barajaClass.barajarBaraja();		// Barajado
-		iu.mostrarMensaje("Baraja mezclada\n\n");
+		iu.mostrarMensaje("Baraja creada");
 		jugadores = iu.leeDatosJugadores();	// Lectura de jugadores
+		iu.mostrarMensaje("\nBarajando");
+		barajaClass.barajarBaraja();		// Barajado
+		iu.mostrarMensaje("Baraja mezclada");
 
 		iu.mostrarMensaje("\nRepartiendo cartas");
 		// Reparto de la baraja
