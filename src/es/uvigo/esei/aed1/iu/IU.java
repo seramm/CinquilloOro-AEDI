@@ -75,11 +75,14 @@ public class IU {
     }
 
     public void mostrarJugador(Jugador jugador) {
-
+        mostrarMensaje(jugador.toString());
+        
     }
 
     public void mostrarJugadores(Collection<Jugador> jugadores) {
-
+        for (Jugador jugador : jugadores) {
+            mostrarJugador(jugador);
+        }
     }
 
 }
