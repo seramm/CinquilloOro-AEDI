@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.core;
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Juego {
 
@@ -34,6 +35,16 @@ public class Juego {
 		}
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
+		//Mostrar jugador que empieza
+		aleatorio();
+	}
+
+	public void aleatorio() {
+		Random rand = new Random();
+		StringBuilder text = new StringBuilder();
+		text.append("\nEl jugador inicial es: ");
+		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		iu.mostrarMensaje(text.toString());
 	}
 
 }
