@@ -33,7 +33,7 @@ public class Juego {
 			}
 		}
 		//Mostrar jugadores
-                iu.mostrarJugadores(jugadores);
+		iu.mostrarJugadores(jugadores);
 	}
 
 }
