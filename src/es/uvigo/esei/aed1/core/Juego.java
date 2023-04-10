@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.core;
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Juego {
 
@@ -35,5 +36,10 @@ public class Juego {
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
 	}
+        
+        public void aleatorio(List<Jugador> jugadores){
+            Random rand = new Random();
+            iu.mostrarMensaje(jugadores.get(rand.nextInt(jugadores.size())).toString());
+        }
 
 }
