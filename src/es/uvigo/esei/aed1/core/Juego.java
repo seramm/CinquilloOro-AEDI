@@ -32,10 +32,8 @@ public class Juego {
 				i.anadirCarta(barajaClass.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 			}
 		}
-		//Mostrar la mano de cada jugador
-		for (Jugador jugador : jugadores) {
-			iu.mostrarMensaje(jugador.toString());
-		}
+		//Mostrar jugadores
+                iu.mostrarJugadores(jugadores);
 	}
 
 }
