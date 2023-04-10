@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 /**
  * Clase que representa un jugador con su nombre y cartas.
+ *
  * @author seram
  */
 public class Jugador {
@@ -19,46 +20,52 @@ public class Jugador {
 
 	/**
 	 * Crea un jugador con su nombre.
+	 *
 	 * @param nombre nombre del jugador.
 	 */
 	public Jugador(String nombre) {
-        this.nombre = nombre;
-    }
+		this.nombre = nombre;
+	}
 
 	/**
 	 * Devuelve el nombre del jugador.
+	 *
 	 * @return nombre del jugador, como String.
 	 */
 	public String getNombre() {
-        return nombre;
-    }
+		return nombre;
+	}
 
 	/**
 	 * Devuelve la mano del jugador.
+	 *
 	 * @return mano que tiene el jugador, como List.
 	 */
 	public List<Carta> getMano() {
-        return mano;
-    }
+		return mano;
+	}
 
 	/**
 	 * Cambia el nombre del jugador.
+	 *
 	 * @param nombre nombre del jugador.
 	 */
 	public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+		this.nombre = nombre;
+	}
 
 	/**
 	 * Cambia la mano del jugador.
+	 *
 	 * @param mano mano del jugador.
 	 */
 	public void setMano(List<Carta> mano) {
-        this.mano = mano;
-    }
-    
+		this.mano = mano;
+	}
+
 	/**
 	 * Añade una carta a la mano del jugador.
+	 *
 	 * @param carta la carta a añadir.
 	 */
 	public void anadirCarta(Carta carta) {

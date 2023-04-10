@@ -11,6 +11,7 @@ import java.util.Random;
 
 /**
  * Clase que contiene la lógica interna del juego.
+ *
  * @author seram
  */
 public class Juego {
@@ -24,6 +25,7 @@ public class Juego {
 
 	/**
 	 * Crea un juego con su interfaz de usuario.
+	 *
 	 * @param iu interfaz de usuario del juego.
 	 */
 	public Juego(IU iu) {
@@ -32,7 +34,8 @@ public class Juego {
 	}
 
 	/**
-	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las cartas y selecciona el jugador inicial.
+	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las
+	 * cartas y selecciona el jugador inicial.
 	 */
 	public void jugar() {
 		barajaClass.crearBaraja();
@@ -52,6 +55,7 @@ public class Juego {
 
 	/**
 	 * Escoge un jugador aleatorio de los contenidos en List<Jugador> jugadores.
+	 *
 	 * @param msg texto a mostrar antes del jugador seleccionado.
 	 */
 	public void jugadorAleatorio(String msg) {

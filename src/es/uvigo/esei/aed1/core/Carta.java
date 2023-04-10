@@ -5,6 +5,7 @@ package es.uvigo.esei.aed1.core;
 
 /**
  * Representa una carta, formada por un número y su palo correspondiente.
+ *
  * @author seram
  */
 public class Carta {
@@ -28,6 +29,7 @@ public class Carta {
 
 	/**
 	 * Cambia el número de la carta.
+	 *
 	 * @param numero número de la carta.
 	 * @throws Exception si el número no se encuentra entre 1 y 12, incluídos.
 	 */
@@ -40,6 +42,7 @@ public class Carta {
 
 	/**
 	 * Cambia el palo de la carta.
+	 *
 	 * @param palo palo de la carta.
 	 */
 	public void setPalo(PALOS palo) {
@@ -48,6 +51,7 @@ public class Carta {
 
 	/**
 	 * Devuelve el número de la carta.
+	 *
 	 * @return el número de la carta, como entero.
 	 */
 	public int getNumero() {
@@ -56,6 +60,7 @@ public class Carta {
 
 	/**
 	 * Devuelve el palo de la carta.
+	 *
 	 * @return el palo de la carta, como Carta.PALO.
 	 */
 	public PALOS getPalo() {

@@ -12,6 +12,7 @@ import java.util.Random;
 
 /**
  * Clase que incluye la lista de cartas, una baraja.
+ *
  * @author seram
  */
 public class Baraja {
@@ -27,6 +28,7 @@ public class Baraja {
 
 	/**
 	 * Devuelve la baraja
+	 *
 	 * @return devuele una lista de cartas, como List.
 	 */
 	public List<Carta> getBaraja() {
@@ -34,7 +36,8 @@ public class Baraja {
 	}
 
 	/**
-	 * Rellena la lista baraja de manera ordenada con todas las cartas del 1 al 12 de los 4 palos(bastos, copas, espadas y oros).
+	 * Rellena la lista baraja de manera ordenada con todas las cartas del 1 al
+	 * 12 de los 4 palos(bastos, copas, espadas y oros).
 	 */
 	public void crearBaraja() {
 		for (Carta.PALOS palo : Carta.PALOS.values()) {
