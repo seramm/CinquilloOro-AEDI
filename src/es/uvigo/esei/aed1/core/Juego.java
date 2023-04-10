@@ -40,7 +40,7 @@ public class Juego {
 	}
 
 	public void jugadorAleatorio(String msg) {
-		Random rand = new Random();
+		Random rand = new Random(System.currentTimeMillis());
 		StringBuilder text = new StringBuilder();
 		text.append(msg);
 		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
