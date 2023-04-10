@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.core;
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Clase que contiene la lógica interna del juego.
@@ -15,7 +16,10 @@ import java.util.List;
 public class Juego {
 
 	private final IU iu;
-	private Baraja baraja;
+
+	List<Carta> baraja = new LinkedList<>();
+	private Baraja barajaClass = new Baraja(baraja);
+
 	private List<Jugador> jugadores = new LinkedList<>();
 
 	/**
@@ -31,24 +35,27 @@ public class Juego {
 	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las cartas e inicia el juego.
 	 */
 	public void jugar() {
-		//preguntar cuantos van a jugar
-		//crear los jugadores
-		//repartir las cartas entre los jugadores
-		//mostrar el estado de los jugadores
-		//indicar quien empieza la partida
+		barajaClass.crearBaraja();
+		barajaClass.barajarBaraja();
 		jugadores = iu.leeDatosJugadores();
-
 		// Reparto de la baraja
-		while (!baraja.getBaraja().isEmpty()) {
+		while (!barajaClass.getBaraja().isEmpty()) {
 			for (Jugador i : jugadores) {
-				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+				i.anadirCarta(barajaClass.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 			}
 		}
+		//Mostrar jugadores
+		iu.mostrarJugadores(jugadores);
+		//Mostrar jugador que empieza
+		aleatorio();
+	}
 
-		//Mostrar la mano de cada jugador
-		for (Jugador jugador : jugadores) {
-			jugador.toString();
-		}
+	public void aleatorio() {
+		Random rand = new Random();
+		StringBuilder text = new StringBuilder();
+		text.append("\nEl jugador inicial es: ");
+		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		iu.mostrarMensaje(text.toString());
 	}
 
 }

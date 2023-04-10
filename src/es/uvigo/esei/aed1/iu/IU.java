@@ -92,7 +92,7 @@ public class IU {
         List<Jugador> jugadores = new LinkedList<>();
         do {
             n = leeNum("Introduce número de jugadores: ");
-        } while (n < 3 && n > 4);
+        } while (n < 3 || n > 4);
 
         System.out.print("\n");
 
@@ -105,20 +105,15 @@ public class IU {
         return jugadores;
     }
 
-	/**
-	 *
-	 * @param jugador
-	 */
-	public void mostrarJugador(Jugador jugador) {
-
+    public void mostrarJugador(Jugador jugador) {
+        mostrarMensaje(jugador.toString());
+        
     }
 
-	/**
-	 *
-	 * @param jugadores
-	 */
-	public void mostrarJugadores(Collection<Jugador> jugadores) {
-
+    public void mostrarJugadores(Collection<Jugador> jugadores) {
+        for (Jugador jugador : jugadores) {
+            mostrarJugador(jugador);
+        }
     }
 
 }
