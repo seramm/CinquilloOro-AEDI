@@ -32,7 +32,7 @@ public class Juego {
 	}
 
 	/**
-	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las cartas e inicia el juego.
+	 * Inicia una partida. Pregunta número de jugadores, los crea, reparte las cartas y selecciona el jugador inicial.
 	 */
 	public void jugar() {
 		barajaClass.crearBaraja();
