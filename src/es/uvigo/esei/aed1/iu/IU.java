@@ -105,12 +105,20 @@ public class IU {
         return jugadores;
     }
 
-    public void mostrarJugador(Jugador jugador) {
+	/**
+	 * Muestra en pantalla la información sobre un jugador.
+	 * @param jugador el jugador a mostrar.
+	 */
+	public void mostrarJugador(Jugador jugador) {
         mostrarMensaje(jugador.toString());
         
     }
 
-    public void mostrarJugadores(Collection<Jugador> jugadores) {
+	/**
+	 * Muestra en pantalla la información de los jugadores
+	 * @param jugadores jugadores a mostrar.
+	 */
+	public void mostrarJugadores(Collection<Jugador> jugadores) {
         for (Jugador jugador : jugadores) {
             mostrarJugador(jugador);
         }
