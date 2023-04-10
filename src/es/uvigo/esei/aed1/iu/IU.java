@@ -61,7 +61,7 @@ public class IU {
         List<Jugador> jugadores = new LinkedList<>();
         do {
             n = leeNum("Introduce número de jugadores: ");
-        } while (n < 3 && n > 4);
+        } while (n < 3 || n > 4);
 
         System.out.print("\n");
 
