@@ -47,13 +47,13 @@ public class Juego {
 		//Mostrar jugadores
 		iu.mostrarJugadores(jugadores);
 		//Mostrar jugador que empieza
-		aleatorio();
+		jugadorAleatorio("El jugador inicial es: ");
 	}
 
-	public void aleatorio() {
+	public void jugadorAleatorio(String msg) {
 		Random rand = new Random();
 		StringBuilder text = new StringBuilder();
-		text.append("\nEl jugador inicial es: ");
+		text.append(msg);
 		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
 		iu.mostrarMensaje(text.toString());
 	}
