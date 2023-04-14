@@ -5,6 +5,7 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -45,7 +46,10 @@ public class Juego {
 		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
 		iu.mostrarMensaje(inicio.toString());
 
-		jugadores = iu.leeDatosJugadores();	// Lectura de jugadores
+		Collection<String> nombres = iu.leeDatosJugadores();
+		for(String i : nombres){
+			jugadores.add(new Jugador(i));
+		}
 		iu.mostrarMensaje("\nBarajando");
 		baraja.barajarBaraja();		// Barajado
 		iu.mostrarMensaje("Baraja mezclada");
