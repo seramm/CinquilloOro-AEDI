@@ -93,9 +93,9 @@ public class IU {
 	 *
 	 * @return lista de jugadores, como List.
 	 */
-	public List<Jugador> leeDatosJugadores() {
+	public Collection<String> leeDatosJugadores() {
 		int n;
-		List<Jugador> jugadores = new LinkedList<>();
+		List<String> jugadores = new LinkedList<>();
 		do {
 			n = leeNum("Introduce número de jugadores: ");
 		} while (n < 3 || n > 4);
@@ -107,8 +107,7 @@ public class IU {
 			do {
 				nombre = leeString("\tIntroduce nombre del jugador " + (i + 1) + ": ");
 			} while (nombre.isBlank() || nombre.isEmpty());
-			Jugador j = new Jugador(nombre);
-			jugadores.add(0, j);
+			jugadores.add(nombre);
 		}
 		return jugadores;
 	}
