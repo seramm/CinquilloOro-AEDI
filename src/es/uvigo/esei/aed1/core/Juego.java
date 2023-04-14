@@ -18,8 +18,7 @@ public class Juego {
 
 	private final IU iu;
 
-	List<Carta> baraja = new LinkedList<>();
-	private Baraja barajaClass = new Baraja(baraja);
+	private Baraja baraja= new Baraja();
 
 	private List<Jugador> jugadores = new LinkedList<>();
 
@@ -46,19 +45,16 @@ public class Juego {
 		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
 		iu.mostrarMensaje(inicio.toString());
 
-		iu.mostrarMensaje("\nCreando baraja");
-		barajaClass.crearBaraja();			// Rellenado de la baraja
-		iu.mostrarMensaje("Baraja creada");
 		jugadores = iu.leeDatosJugadores();	// Lectura de jugadores
 		iu.mostrarMensaje("\nBarajando");
-		barajaClass.barajarBaraja();		// Barajado
+		baraja.barajarBaraja();		// Barajado
 		iu.mostrarMensaje("Baraja mezclada");
 
 		iu.mostrarMensaje("\nRepartiendo cartas");
 		// Reparto de la baraja
-		while (!barajaClass.getBaraja().isEmpty()) {
+		while (!baraja.getBaraja().isEmpty()) {
 			for (Jugador i : jugadores) {
-				i.anadirCarta(barajaClass.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 			}
 		}
 		//Mostrar jugadores
