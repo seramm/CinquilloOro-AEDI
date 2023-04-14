@@ -28,28 +28,6 @@ public class Carta {
 	}
 
 	/**
-	 * Cambia el número de la carta.
-	 *
-	 * @param numero número de la carta.
-	 * @throws Exception si el número no se encuentra entre 1 y 12, incluídos.
-	 */
-	public void setNumero(int numero) throws Exception {
-		this.numero = numero;
-		if (numero < 1 || numero > 12) {
-			throw new Exception("Número de carta no válido. No se encuentra en 1 y 12.");
-		}
-	}
-
-	/**
-	 * Cambia el palo de la carta.
-	 *
-	 * @param palo palo de la carta.
-	 */
-	public void setPalo(PALOS palo) {
-		this.palo = palo;
-	}
-
-	/**
 	 * Devuelve el número de la carta.
 	 *
 	 * @return el número de la carta, como entero.
