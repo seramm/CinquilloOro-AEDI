@@ -16,8 +16,8 @@ public class Carta {
 	public enum PALOS {
 		BASTOS, COPAS, ESPADAS, OROS
 	};
-	private int numero;
-	private PALOS palo;
+	private final int numero;
+	private final PALOS palo;
 
 	/**
 	 * Define una carta con su número y palo
