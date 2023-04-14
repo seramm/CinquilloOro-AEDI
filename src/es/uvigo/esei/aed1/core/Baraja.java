@@ -20,10 +20,16 @@ public class Baraja {
 	private List<Carta> baraja = new LinkedList<>();
 
 	/**
-	 * Crea una lista de cartas, la baraja.
+	 * Crea una lista de cartas y la rellena con todas las cartas del 1 al 12 de
+	 * los 4 palos.
 	 */
-	public Baraja(List<Carta> baraja) {
-		this.baraja = baraja;
+	public Baraja() {
+		for (Carta.PALOS palo : Carta.PALOS.values()) {
+			for (int i = 1; i <= 12; i++) {
+				Carta nuevaCarta = new Carta(i, palo);
+				baraja.add(nuevaCarta);
+			}
+		}
 	}
 
 	/**
@@ -33,19 +39,6 @@ public class Baraja {
 	 */
 	public List<Carta> getBaraja() {
 		return baraja;
-	}
-
-	/**
-	 * Rellena la lista baraja de manera ordenada con todas las cartas del 1 al
-	 * 12 de los 4 palos(bastos, copas, espadas y oros).
-	 */
-	public void crearBaraja() {
-		for (Carta.PALOS palo : Carta.PALOS.values()) {
-			for (int i = 1; i <= 12; i++) {
-				Carta nuevaCarta = new Carta(i, palo);
-				baraja.add(nuevaCarta);
-			}
-		}
 	}
 
 	/**
