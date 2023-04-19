@@ -72,7 +72,7 @@ public class Juego {
 	 *
 	 * @param msg texto a mostrar antes del jugador seleccionado.
 	 */
-	public void jugadorAleatorio(String msg) {
+	private void jugadorAleatorio(String msg) {
 		iu.mostrarMensaje("\n\nEscogiendo jugador aleatorio");
 		Random rand = new Random(System.currentTimeMillis());
 		StringBuilder text = new StringBuilder();
