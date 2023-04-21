@@ -142,4 +142,28 @@ public class IU {
             
             //Implementar funcion "mostrarMesa"???
         }
+        
+         public void turno(Jugador jugador){
+            boolean puede = false;
+            mostrarTurno(jugador);
+            
+             for (int i = 0; i < jugador.getMano().size(); i++) {
+                 if(jugador.getMano().get(i) == ){
+                     puede = true;
+                 }else if(jugador.getMano().get(i) == ){
+                     puede = true;
+                 }else if(jugador.getMano().get(i) == ){
+                     puede = true;
+                 }else if(jugador.getMano().get(i) == ){
+                     puede = true;
+                 } //Un if para cada doble cola de la mesa(Cada palo)
+             }    
+            if(puede == true){  //Si puede jugar al menos una carta se sigue con el turno
+                mostrarMensaje("Selecciona una carta para jugar: \n");
+                //Implementar eleccion de carta
+            }else{
+                mostrarMensaje("No puedes jugar ninguna carta\n");
+            }   //Si no puede jugar ninguna carta se le avisa y se acaba el turno
+            
+        }
 }
