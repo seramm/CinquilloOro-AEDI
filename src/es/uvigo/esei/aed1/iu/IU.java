@@ -134,4 +134,12 @@ public class IU {
 		}
 	}
 
+        public void mostrarTurno(Jugador jugador){
+            mostrarMensaje("Estado del turno: \t");
+            mostrarMensaje("Jugador actual: \t");     
+            mostrarJugador(jugador);
+            mostrarMensaje("Estado de la mesa: \t");
+            
+            //Implementar funcion "mostrarMesa"???
+        }
 }
