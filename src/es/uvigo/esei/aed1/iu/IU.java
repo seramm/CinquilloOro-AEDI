@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.iu;
 import java.util.List;
 import java.util.LinkedList;
 import es.uvigo.esei.aed1.core.Jugador;
+import es.uvigo.esei.aed1.core.Mesa;
 import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -134,29 +135,27 @@ public class IU {
 		}
 	}
 
-        public void mostrarTurno(Jugador jugador){
+        public void mostrarTurno(Jugador jugador, Mesa mesa){
             mostrarMensaje("Estado del turno: \t");
             mostrarMensaje("Jugador actual: \t");     
             mostrarJugador(jugador);
             mostrarMensaje("Estado de la mesa: \t");
-            
+            mesa.toString();
             //Implementar funcion "mostrarMesa"???
         }
         
-         public void turno(Jugador jugador){
+         public void turno(Jugador jugador, Mesa mesa){
             boolean puede = false;
             mostrarTurno(jugador);
             
              for (int i = 0; i < jugador.getMano().size(); i++) {
-                 if(jugador.getMano().get(i) == ){
-                     puede = true;
-                 }else if(jugador.getMano().get(i) == ){
-                     puede = true;
-                 }else if(jugador.getMano().get(i) == ){
-                     puede = true;
-                 }else if(jugador.getMano().get(i) == ){
-                     puede = true;
-                 } //Un if para cada doble cola de la mesa(Cada palo)
+                 for (int j = 0; j < 4; j++) {
+                     if(jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero()+1){
+                         puede = true;
+                     }else if(jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero()+-1){
+                         puede = true;
+                     }
+                 }
              }    
             if(puede == true){  //Si puede jugar al menos una carta se sigue con el turno
                 mostrarMensaje("Selecciona una carta para jugar: \n");
