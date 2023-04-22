@@ -48,11 +48,32 @@ public class Mesa {
 		StringBuilder toret = new StringBuilder("\n");
 
 		toret.append("Estado de la mesa: ");
-		for(Carta.PALOS i : Carta.PALOS.values()) {
+		for (Carta.PALOS i : Carta.PALOS.values()) {
 			toret.append(i.toString()).append(":");
-			for(Carta j : cartas[i.ordinal()]) {
+			for (Carta j : cartas[i.ordinal()]) {
 				toret.append(j.toString()).append(", ");
 			}
+		}
+
+		return toret.toString();
+	}
+
+	public String toStringGraph() {
+		StringBuilder toret = new StringBuilder();
+
+		String[][] datos = new String[13][4];
+		for (Carta.PALOS i : Carta.PALOS.values()) {
+			datos[0][i.ordinal()] = i.toString();
+			for (Carta j : cartas[i.ordinal()]) {
+				datos[j.getNumero()][i.ordinal()] = j.toStringShort();
+			}
+		}
+
+		for (int i = 0; i < datos.length; i++) {
+			for (int j = 0; j < datos[i].length; j++) {
+				toret.append(datos[j][i]).append("\t");
+			}
+			toret.append("\n");
 		}
 
 		return toret.toString();
