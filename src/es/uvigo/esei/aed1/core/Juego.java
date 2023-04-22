@@ -6,6 +6,7 @@ package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -74,10 +75,12 @@ public class Juego {
 	private void jugadorAleatorio(String msg) {
 		iu.mostrarMensaje("\n\nEscogiendo jugador aleatorio");
 		Random rand = new Random(System.currentTimeMillis());
+		Jugador jugadorRand = jugadores.get(rand.nextInt(jugadores.size()));
 		StringBuilder text = new StringBuilder();
 		text.append(msg);
-		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
+		Collections.rotate(jugadores, jugadores.indexOf(jugadorRand));
 	}
 
 }
