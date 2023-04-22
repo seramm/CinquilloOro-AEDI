@@ -43,6 +43,10 @@ public class Mesa {
 		}
 	}
 
+	public Deque<Carta>[] getCartas() {
+		return cartas;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder("\n");
@@ -50,7 +54,7 @@ public class Mesa {
 		toret.append("Estado de la mesa: ");
 		for(Carta.PALOS i : Carta.PALOS.values()) {
 			toret.append(i.toString()).append(":");
-			for(Carta j : cartas[i.ordinal()]) {
+			for(Carta j : getCartas()[i.ordinal()]) {
 				toret.append(j.toString()).append(", ");
 			}
 		}
