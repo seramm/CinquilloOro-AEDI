@@ -146,7 +146,7 @@ public class IU {
         
          public void turno(Jugador jugador, Mesa mesa){
             boolean puede = false;
-            mostrarTurno(jugador);
+            mostrarTurno(jugador, mesa);
             
              for (int i = 0; i < jugador.getMano().size(); i++) {
                  for (int j = 0; j < 4; j++) {
