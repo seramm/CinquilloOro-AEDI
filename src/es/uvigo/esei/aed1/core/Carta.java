@@ -75,7 +75,7 @@ public class Carta {
 
 	public String toStringShort() {
 		StringBuilder toret = new StringBuilder();
-		toret.append(getNumero());
+		toret.append(String.format("%02d", getNumero())).append("-");
 		toret.append(getPalo().toString().toUpperCase().charAt(0));
 
 		return toret.toString();
