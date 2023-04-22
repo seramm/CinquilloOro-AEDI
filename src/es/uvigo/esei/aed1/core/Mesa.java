@@ -6,17 +6,56 @@
  */
 package es.uvigo.esei.aed1.core;
 
+import es.uvigo.esei.aed1.iu.IU;
+
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 public class Mesa {
 
-	//constructor
-	public Mesa() {
+	private Deque<Carta>[] cartas;
 
+	public Mesa() {
+		cartas = new Deque[4];
+		for (int i = 0; i < 4; i++) {
+			cartas[i] = new ArrayDeque<>();
+		}
 	}
 
-	//a�adir m�s funcionalidades
-	// mostrar el estado de la mesa
+	public void ponerCarta(Carta carta) {
+		Deque<Carta> dequeCarta = cartas[carta.getPalo().ordinal()];
+
+		if (dequeCarta.isEmpty()) {
+			if (carta.getNumero() == 5) {
+				dequeCarta.add(carta);
+				System.out.println("Has puesto la carta " + carta.toString());
+			} else {
+				System.out.println("Carta no válida.");
+			}
+		} else if (carta.getNumero() == (dequeCarta.getFirst().getNumero() - 1)) {
+			dequeCarta.addFirst(carta);
+			System.out.println("Has puesto la carta " + carta.toString());
+		} else if (carta.getNumero() == (dequeCarta.getLast().getNumero() + 1)) {
+			dequeCarta.addLast(carta);
+			System.out.println("Has puesto la carta " + carta.toString());
+		} else {
+			System.out.println("La carta " + carta.toString() + " no es válida.");
+		}
+	}
+
 	@Override
 	public String toString() {
+		StringBuilder toret = new StringBuilder("\n");
+
+		toret.append("Estado de la mesa: ");
+		for(Carta.PALOS i : Carta.PALOS.values()) {
+			toret.append(i.toString()).append(":");
+			for(Carta j : cartas[i.ordinal()]) {
+				toret.append(j.toString()).append(", ");
+			}
+		}
+
+		return toret.toString();
 	}
 
 }
