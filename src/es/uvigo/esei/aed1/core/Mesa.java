@@ -6,11 +6,19 @@
  */
 package es.uvigo.esei.aed1.core;
 
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 public class Mesa {
+
+	private Deque<Carta>[] cartas;
 
 	//constructor
 	public Mesa() {
-
+		cartas = new Deque[4];
+		for(int i = 0; i < 4; i++) {
+			cartas[i] = new ArrayDeque<>();
+		}
 	}
 
 	//a�adir m�s funcionalidades
