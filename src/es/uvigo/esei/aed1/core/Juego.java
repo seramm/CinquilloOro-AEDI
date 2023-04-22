@@ -64,9 +64,11 @@ public class Juego {
 		iu.mostrarJugadores(jugadores);
 		//Mostrar jugador que empieza
 		jugadorAleatorio("\tEl jugador inicial es: ");
+
+		
 	}
 
-	public void turno(Jugador jugador, Mesa mesa) {
+	public void turno(Jugador jugador) {
 		boolean puede = false;
 		iu.mostrarTurno(jugador, mesa);
 
