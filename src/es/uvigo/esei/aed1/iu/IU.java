@@ -152,7 +152,7 @@ public class IU {
                  for (int j = 0; j < 4; j++) {
                      if(jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero()+1){
                          puede = true;
-                     }else if(jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero()+-1){
+                     }else if(jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero()-1){
                          puede = true;
                      }
                  }
