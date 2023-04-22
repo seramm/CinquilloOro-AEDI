@@ -73,4 +73,12 @@ public class Carta {
 		return toret.toString();
 	}
 
+	public String toStringShort() {
+		StringBuilder toret = new StringBuilder();
+		toret.append(getNumero());
+		toret.append(getPalo().toString().toUpperCase().charAt(0));
+
+		return toret.toString();
+	}
+
 }
