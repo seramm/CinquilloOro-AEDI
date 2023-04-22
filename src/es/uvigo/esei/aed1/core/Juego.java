@@ -66,6 +66,28 @@ public class Juego {
 		jugadorAleatorio("\tEl jugador inicial es: ");
 	}
 
+	public void turno(Jugador jugador, Mesa mesa) {
+		boolean puede = false;
+		iu.mostrarTurno(jugador, mesa);
+
+		for (int i = 0; i < jugador.getMano().size(); i++) {
+			for (int j = 0; j < 4; j++) {
+				if (jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero() + 1) {
+					puede = true;
+				} else if (jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero() - 1) {
+					puede = true;
+				}
+			}
+		}
+		if (puede == true) {  //Si puede jugar al menos una carta se sigue con el turno
+			iu.mostrarMensaje("Selecciona una carta para jugar: \n");
+			//Implementar eleccion de carta
+		} else {
+			iu.mostrarMensaje("No puedes jugar ninguna carta\n");
+		}   //Si no puede jugar ninguna carta se le avisa y se acaba el turno
+
+	}
+
 	/**
 	 * Escoge un jugador aleatorio de los contenidos en List<Jugador> jugadores.
 	 *
