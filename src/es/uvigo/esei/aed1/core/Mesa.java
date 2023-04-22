@@ -45,6 +45,17 @@ public class Mesa {
 
 	@Override
 	public String toString() {
+		StringBuilder toret = new StringBuilder("\n");
+
+		toret.append("Estado de la mesa: ");
+		for(Carta.PALOS i : Carta.PALOS.values()) {
+			toret.append(i.toString()).append(":");
+			for(Carta j : cartas[i.ordinal()]) {
+				toret.append(j.toString()).append(", ");
+			}
+		}
+
+		return toret.toString();
 	}
 
 }
