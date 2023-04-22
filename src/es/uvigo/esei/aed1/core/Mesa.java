@@ -6,6 +6,8 @@
  */
 package es.uvigo.esei.aed1.core;
 
+import es.uvigo.esei.aed1.iu.IU;
+
 import java.util.Deque;
 import java.util.ArrayDeque;
 
@@ -21,8 +23,27 @@ public class Mesa {
 		}
 	}
 
-	//a�adir m�s funcionalidades
-	// mostrar el estado de la mesa
+	public void ponerCarta(Carta carta) {
+		Deque<Carta> dequeCarta = cartas[carta.getPalo().ordinal()];
+
+		if (dequeCarta.isEmpty()) {
+			if (carta.getNumero() == 5) {
+				dequeCarta.add(carta);
+				System.out.println("Has puesto la carta " + carta.toString());
+			} else {
+				System.out.println("Carta no válida.");
+			}
+		} else if (carta.getNumero() == (dequeCarta.getFirst().getNumero() - 1)) {
+			dequeCarta.addFirst(carta);
+			System.out.println("Has puesto la carta " + carta.toString());
+		} else if (carta.getNumero() == (dequeCarta.getLast().getNumero() + 1)) {
+			dequeCarta.addLast(carta);
+			System.out.println("Has puesto la carta " + carta.toString());
+		} else {
+			System.out.println("La carta " + carta.toString() + " no es válida.");
+		}
+	}
+
 	@Override
 	public String toString() {
 	}
