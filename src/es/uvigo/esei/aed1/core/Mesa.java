@@ -15,10 +15,9 @@ public class Mesa {
 
 	private Deque<Carta>[] cartas;
 
-	//constructor
 	public Mesa() {
 		cartas = new Deque[4];
-		for(int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {
 			cartas[i] = new ArrayDeque<>();
 		}
 	}
