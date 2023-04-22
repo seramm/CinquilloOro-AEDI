@@ -18,9 +18,8 @@ import java.util.Random;
 public class Juego {
 
 	private final IU iu;
-
 	private Baraja baraja= new Baraja();
-
+	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
 
 	/**
@@ -30,7 +29,7 @@ public class Juego {
 	 */
 	public Juego(IU iu) {
 		this.iu = iu;
-
+		mesa = new Mesa();
 	}
 
 	/**
