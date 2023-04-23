@@ -100,4 +100,12 @@ public class Carta {
 		return toret.toString();
 	}
 
+	public String toStringShort() {
+		StringBuilder toret = new StringBuilder();
+		toret.append(String.format("%02d", getNumero())).append("-");
+		toret.append(getPalo().toString().toUpperCase().charAt(0));
+
+		return toret.toString();
+	}
+
 }
