@@ -66,8 +66,6 @@ public class Juego {
 		//Mostrar jugador que empieza
 		jugadorAleatorio("\tEl jugador inicial es: ");
 
-		iu.mostrarJugadores(jugadores);
-
 		text = new StringBuilder();
 		text.append("\n\n").append(separador).append("\n\n");
 		text.append("\t\tInicio del juego\n\n").append(separador).append("\n");
