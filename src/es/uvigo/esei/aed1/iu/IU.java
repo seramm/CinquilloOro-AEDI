@@ -20,6 +20,7 @@ import java.util.Scanner;
  */
 public class IU {
 
+	public final String separador;
 	private final Scanner teclado;
 
 	/**
@@ -27,6 +28,11 @@ public class IU {
 	 */
 	public IU() {
 		teclado = new Scanner(System.in).useDelimiter("\r?\n");
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 50; i++) {
+			sb.append('#');
+		}
+		separador = sb.toString();
 	}
 
 	/**
@@ -137,13 +143,13 @@ public class IU {
 	}
 
 	public void mostrarTurno(Jugador jugador, Mesa mesa) {
-		mostrarMensaje("Estado del turno: \t");
+		mostrarMensaje("\n\nEstado del turno: \t");
 		System.out.println(mesa.toStringGraph());
 		mostrarJugador(jugador);
 	}
 
 	public Carta pedirCarta(Jugador jugador) {
-		String carta = leeString("Indica la carta que quieres poner(Escribe s para saltar turno): ");
+		String carta = leeString("Carta que quieres poner(El formato es NN-X, donde NN es el número y X la inicial del palo. Escribe s para saltar turno): ");
 		return Carta.stringToCarta(carta);
 	}
 }

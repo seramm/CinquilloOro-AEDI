@@ -38,12 +38,8 @@ public class Juego {
 	 * cartas y selecciona el jugador inicial.
 	 */
 	public void jugar() {
-		StringBuilder separador = new StringBuilder();
 		StringBuilder text = new StringBuilder();
-		for (int i = 0; i < 50; i++) {
-			separador.append('#');
-		}
-		text.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
+		text.append(iu.separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(iu.separador);
 		iu.mostrarMensaje(text.toString());
 
 		Collection<String> nombres = iu.leeDatosJugadores();
@@ -67,9 +63,13 @@ public class Juego {
 		jugadorAleatorio("\tEl jugador inicial es: ");
 
 		text = new StringBuilder();
-		text.append("\n\n").append(separador).append("\n\n");
-		text.append("\t\tInicio del juego\n\n").append(separador).append("\n");
+		text.append("\n\n").append(iu.separador).append("\n\n");
+		text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
 		iu.mostrarMensaje(text.toString());
+
+		for (Jugador i : jugadores) {
+			turno(i);
+		}
 	}
 
 	public void turno(Jugador jugador) {
