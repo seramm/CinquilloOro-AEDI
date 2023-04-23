@@ -57,7 +57,7 @@ public class Mesa {
 
 		toret.append("Estado de la mesa: ");
 		for(Carta.PALOS i : Carta.PALOS.values()) {
-			toret.append(i.toString()).append(":");
+			toret.append("\n\t").append(i.toString()).append(":");
 			for(Carta j : getCartas()[i.ordinal()]) {
 				toret.append(j.toString()).append(", ");
 			}
