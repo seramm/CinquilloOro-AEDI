@@ -90,10 +90,9 @@ public class Juego {
 				puede = mesa.ponerCarta(carta);
 				jugador.quitarCarta(carta);
 			} else {
-				iu.mostrarJugador(jugador);
-				System.out.println(jugador.getMano().contains(carta));
 				iu.mostrarMensaje("No tienes la carta " + carta.toString());
 			}
+			iu.mostrarJugador(jugador);
 		}
 	}
 
