@@ -69,7 +69,8 @@ public class Juego {
 		iu.mostrarJugadores(jugadores);
 
 		text = new StringBuilder();
-		text.append("\n\n").append(separador).append("\n");
+		text.append("\n\n").append(separador).append("\n\n");
+		text.append("\t\tInicio del juego\n\n").append(separador).append("\n");
 		iu.mostrarMensaje(text.toString());
 
 		for(Jugador i : jugadores) {
@@ -109,7 +110,7 @@ public class Juego {
 		text.append(msg);
 		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
-		Collections.rotate(jugadores, jugadores.indexOf(jugadorRand));
+		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
 	}
 
 }
