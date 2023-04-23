@@ -72,6 +72,10 @@ public class Jugador {
 		mano.add(carta);
 	}
 
+	public void quitarCarta(Carta carta) {
+		mano.remove(carta);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder();
