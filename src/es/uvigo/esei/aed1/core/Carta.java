@@ -54,7 +54,7 @@ public class Carta {
 		PALOS paloCarta = PALOS.BASTOS;
 
 		for(int i = 0; i < palos.length && !encontrado; i++) {
-			if (splitCarta[1].charAt(0) == palos[i].toString().charAt(0)) {
+			if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
 				paloCarta = palos[i];
 				encontrado = true;
 			}
