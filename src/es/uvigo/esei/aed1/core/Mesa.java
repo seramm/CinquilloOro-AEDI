@@ -51,10 +51,6 @@ public class Mesa {
 		return cartas;
 	}
 
-	public Deque<Carta>[] getCartas() {
-		return cartas;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder("\n");

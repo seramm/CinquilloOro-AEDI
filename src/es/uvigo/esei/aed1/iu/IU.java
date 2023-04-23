@@ -138,7 +138,7 @@ public class IU {
 
 	public void mostrarTurno(Jugador jugador, Mesa mesa) {
 		mostrarMensaje("Estado del turno: \t");
-		System.out.println(mesa.toString());
+		System.out.println(mesa.toStringGraph());
 		mostrarJugador(jugador);
 	}
 
