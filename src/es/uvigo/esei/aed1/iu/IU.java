@@ -138,8 +138,8 @@ public class IU {
 
 	public void mostrarTurno(Jugador jugador, Mesa mesa) {
 		mostrarMensaje("Estado del turno: \t");
-		mostrarJugador(jugador);
 		System.out.println(mesa.toString());
+		mostrarJugador(jugador);
 	}
 
 	public Carta pedirCarta(Jugador jugador) {
