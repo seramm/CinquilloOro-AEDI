@@ -143,7 +143,7 @@ public class IU {
 	}
 
 	public Carta pedirCarta(Jugador jugador) {
-			String carta = leeString("Indica la carta que quieres poner(Escribe s para saltar turno): ");
-			return Carta.stringToCarta(carta);
+		String carta = leeString("Indica la carta que quieres poner(Escribe s para saltar turno): ");
+		return Carta.stringToCarta(carta);
 	}
 }

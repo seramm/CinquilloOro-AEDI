@@ -53,7 +53,7 @@ public class Carta {
 		int num = Integer.parseInt(splitCarta[0]);
 		PALOS paloCarta = PALOS.BASTOS;
 
-		for(int i = 0; i < palos.length && !encontrado; i++) {
+		for (int i = 0; i < palos.length && !encontrado; i++) {
 			if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
 				paloCarta = palos[i];
 				encontrado = true;
@@ -66,7 +66,7 @@ public class Carta {
 	@Override
 	public boolean equals(Object object) {
 		boolean toret = false;
-		if(object instanceof Carta) {
+		if (object instanceof Carta) {
 			toret = (this.numero == ((Carta) object).numero) && (this.palo == ((Carta) object).palo);
 		}
 		return toret;

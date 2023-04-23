@@ -19,7 +19,7 @@ import java.util.Random;
 public class Juego {
 
 	private final IU iu;
-	private Baraja baraja= new Baraja();
+	private Baraja baraja = new Baraja();
 	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
 
@@ -40,14 +40,14 @@ public class Juego {
 	public void jugar() {
 		StringBuilder separador = new StringBuilder();
 		StringBuilder text = new StringBuilder();
-		for(int i = 0; i < 50; i++) {
+		for (int i = 0; i < 50; i++) {
 			separador.append('#');
 		}
 		text.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
 		iu.mostrarMensaje(text.toString());
 
 		Collection<String> nombres = iu.leeDatosJugadores();
-		for(String i : nombres){
+		for (String i : nombres) {
 			jugadores.add(new Jugador(i));
 		}
 		iu.mostrarMensaje("\nBarajando");
@@ -77,9 +77,9 @@ public class Juego {
 		Carta carta;
 		iu.mostrarTurno(jugador, mesa);
 
-		while(puede == false) {
+		while (puede == false) {
 			carta = iu.pedirCarta(jugador);
-			if(jugador.getMano().contains(carta)) {
+			if (jugador.getMano().contains(carta)) {
 				puede = mesa.ponerCarta(carta);
 				jugador.quitarCarta(carta);
 			} else {

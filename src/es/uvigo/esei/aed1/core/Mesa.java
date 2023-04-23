@@ -56,9 +56,9 @@ public class Mesa {
 		StringBuilder toret = new StringBuilder("\n");
 
 		toret.append("Estado de la mesa: ");
-		for(Carta.PALOS i : Carta.PALOS.values()) {
+		for (Carta.PALOS i : Carta.PALOS.values()) {
 			toret.append("\n\t").append(i.toString()).append(":");
-			for(Carta j : getCartas()[i.ordinal()]) {
+			for (Carta j : getCartas()[i.ordinal()]) {
 				toret.append(j.toString()).append(", ");
 			}
 		}
@@ -79,7 +79,7 @@ public class Mesa {
 
 		for (int i = 0; i < datos.length; i++) {
 			for (int j = 0; j < datos[i].length; j++) {
-				if(datos[i][j] == null) {
+				if (datos[i][j] == null) {
 					toret.append("    ");
 				} else {
 					toret.append(datos[i][j]);
