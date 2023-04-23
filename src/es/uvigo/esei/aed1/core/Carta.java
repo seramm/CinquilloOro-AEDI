@@ -45,17 +45,20 @@ public class Carta {
 		return palo;
 	}
 
-	public Carta StringToCarta(String carta) {
+	public static Carta stringToCarta(String carta) {
+		boolean encontrado = false;
+		PALOS[] palos = PALOS.values();
+
 		String[] splitCarta = carta.split("-");
 		int num = Integer.parseInt(splitCarta[0]);
 		PALOS paloCarta = PALOS.BASTOS;
 
-		for(PALOS i : PALOS.values()) {
-			if(splitCarta[1].equals(i.toString().charAt(0))) {
-				paloCarta = i;
+		for(int i = 0; i < palos.length && !encontrado; i++) {
+			if (splitCarta[1].charAt(0) == palos[i].toString().charAt(0)) {
+				paloCarta = palos[i];
+				encontrado = true;
 			}
 		}
-
 
 		return new Carta(num, paloCarta);
 	}
