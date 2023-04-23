@@ -70,11 +70,6 @@ public class Juego {
 		text.append("\n\n").append(separador).append("\n\n");
 		text.append("\t\tInicio del juego\n\n").append(separador).append("\n");
 		iu.mostrarMensaje(text.toString());
-
-		for(Jugador i : jugadores) {
-			turno(i);
-		}
-		
 	}
 
 	public void turno(Jugador jugador) {
