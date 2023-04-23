@@ -62,6 +62,14 @@ public class Carta {
 		return toret;
 	}
 	@Override
+	public boolean equals(Object object) {
+		boolean toret = false;
+		if(object instanceof Carta) {
+			toret = (this.numero == ((Carta) object).numero) && (this.palo == ((Carta) object).palo);
+		}
+		return toret;
+	}
+	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder();
 
