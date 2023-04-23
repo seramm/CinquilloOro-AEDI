@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.LinkedList;
 import es.uvigo.esei.aed1.core.Jugador;
 import es.uvigo.esei.aed1.core.Mesa;
+import es.uvigo.esei.aed1.core.Carta;
 import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -142,5 +143,10 @@ public class IU {
 		mostrarMensaje("Estado de la mesa: \t");
 		mesa.toString();
 		//Implementar funcion "mostrarMesa"???
+	}
+
+	public Carta pedirCarta(Jugador jugador) {
+			String carta = leeString("Indica la carta que quieres poner(Escribe s para saltar turno): ");
+			return Carta.stringToCarta(carta);
 	}
 }

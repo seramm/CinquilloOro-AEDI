@@ -29,7 +29,7 @@ public class Mesa {
 		if (dequeCarta.isEmpty()) {
 			if (carta.getNumero() == 5) {
 				dequeCarta.add(carta);
-				System.out.println("Has puesto la carta " + carta.toString());
+				System.out.println("Has puesto la carta inicial " + carta.toString());
 			} else {
 				System.out.println("Carta no válida.");
 				toret = false;
