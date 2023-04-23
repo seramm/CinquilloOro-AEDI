@@ -45,6 +45,24 @@ public class Carta {
 		return palo;
 	}
 
+	public static Carta stringToCarta(String carta) {
+		boolean encontrado = false;
+		PALOS[] palos = PALOS.values();
+
+		String[] splitCarta = carta.split("-");
+		int num = Integer.parseInt(splitCarta[0]);
+		PALOS paloCarta = PALOS.BASTOS;
+
+		for(int i = 0; i < palos.length && !encontrado; i++) {
+			if (splitCarta[1].charAt(0) == palos[i].toString().charAt(0)) {
+				paloCarta = palos[i];
+				encontrado = true;
+			}
+		}
+
+		return new Carta(num, paloCarta);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder();

@@ -7,6 +7,7 @@ package es.uvigo.esei.aed1.iu;
 import java.util.List;
 import java.util.LinkedList;
 import es.uvigo.esei.aed1.core.Jugador;
+import es.uvigo.esei.aed1.core.Mesa;
 import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -134,4 +135,12 @@ public class IU {
 		}
 	}
 
+	public void mostrarTurno(Jugador jugador, Mesa mesa) {
+		mostrarMensaje("Estado del turno: \t");
+		mostrarMensaje("Jugador actual: \t");
+		mostrarJugador(jugador);
+		mostrarMensaje("Estado de la mesa: \t");
+		mesa.toString();
+		//Implementar funcion "mostrarMesa"???
+	}
 }

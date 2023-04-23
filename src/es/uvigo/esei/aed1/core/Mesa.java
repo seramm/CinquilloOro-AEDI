@@ -22,8 +22,9 @@ public class Mesa {
 		}
 	}
 
-	public void ponerCarta(Carta carta) {
+	public boolean ponerCarta(Carta carta) {
 		Deque<Carta> dequeCarta = cartas[carta.getPalo().ordinal()];
+		boolean toret = true;
 
 		if (dequeCarta.isEmpty()) {
 			if (carta.getNumero() == 5) {
@@ -31,6 +32,7 @@ public class Mesa {
 				System.out.println("Has puesto la carta " + carta.toString());
 			} else {
 				System.out.println("Carta no válida.");
+				toret = false;
 			}
 		} else if (carta.getNumero() == (dequeCarta.getFirst().getNumero() - 1)) {
 			dequeCarta.addFirst(carta);
@@ -40,7 +42,9 @@ public class Mesa {
 			System.out.println("Has puesto la carta " + carta.toString());
 		} else {
 			System.out.println("La carta " + carta.toString() + " no es válida.");
+			toret = false;
 		}
+		return toret;
 	}
 
 	public Deque<Carta>[] getCartas() {

@@ -6,6 +6,7 @@ package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -18,9 +19,8 @@ import java.util.Random;
 public class Juego {
 
 	private final IU iu;
-
 	private Baraja baraja= new Baraja();
-
+	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
 
 	/**
@@ -30,7 +30,7 @@ public class Juego {
 	 */
 	public Juego(IU iu) {
 		this.iu = iu;
-
+		mesa = new Mesa();
 	}
 
 	/**
@@ -65,6 +65,30 @@ public class Juego {
 		iu.mostrarJugadores(jugadores);
 		//Mostrar jugador que empieza
 		jugadorAleatorio("\tEl jugador inicial es: ");
+
+		
+	}
+
+	public void turno(Jugador jugador) {
+		boolean puede = false;
+		iu.mostrarTurno(jugador, mesa);
+
+		for (int i = 0; i < jugador.getMano().size(); i++) {
+			for (int j = 0; j < 4; j++) {
+				if (jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero() + 1) {
+					puede = true;
+				} else if (jugador.getMano().get(i).getNumero() == mesa.getCartas()[j].element().getNumero() - 1) {
+					puede = true;
+				}
+			}
+		}
+		if (puede == true) {  //Si puede jugar al menos una carta se sigue con el turno
+			iu.mostrarMensaje("Selecciona una carta para jugar: \n");
+			//Implementar eleccion de carta
+		} else {
+			iu.mostrarMensaje("No puedes jugar ninguna carta\n");
+		}   //Si no puede jugar ninguna carta se le avisa y se acaba el turno
+
 	}
 
 	/**
@@ -75,10 +99,12 @@ public class Juego {
 	private void jugadorAleatorio(String msg) {
 		iu.mostrarMensaje("\n\nEscogiendo jugador aleatorio");
 		Random rand = new Random(System.currentTimeMillis());
+		Jugador jugadorRand = jugadores.get(rand.nextInt(jugadores.size()));
 		StringBuilder text = new StringBuilder();
 		text.append(msg);
-		text.append(jugadores.get(rand.nextInt(jugadores.size())).getNombre());
+		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
+		Collections.rotate(jugadores, jugadores.indexOf(jugadorRand));
 	}
 
 }
