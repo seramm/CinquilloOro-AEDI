@@ -86,14 +86,12 @@ public class Juego {
 
 		while(puede == false) {
 			carta = iu.pedirCarta(jugador);
-			System.out.println(carta.toString());
 			if(jugador.getMano().contains(carta)) {
 				puede = mesa.ponerCarta(carta);
 				jugador.quitarCarta(carta);
 			} else {
 				iu.mostrarMensaje("No tienes la carta " + carta.toString());
 			}
-			iu.mostrarJugador(jugador);
 		}
 	}
 
