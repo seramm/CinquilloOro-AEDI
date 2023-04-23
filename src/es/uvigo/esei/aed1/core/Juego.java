@@ -39,12 +39,12 @@ public class Juego {
 	 */
 	public void jugar() {
 		StringBuilder separador = new StringBuilder();
-		StringBuilder inicio = new StringBuilder();
+		StringBuilder text = new StringBuilder();
 		for(int i = 0; i < 50; i++) {
 			separador.append('#');
 		}
-		inicio.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
-		iu.mostrarMensaje(inicio.toString());
+		text.append(separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(separador);
+		iu.mostrarMensaje(text.toString());
 
 		Collection<String> nombres = iu.leeDatosJugadores();
 		for(String i : nombres){
@@ -66,7 +66,10 @@ public class Juego {
 		//Mostrar jugador que empieza
 		jugadorAleatorio("\tEl jugador inicial es: ");
 
-		
+		text = new StringBuilder();
+		text.append("\n\n").append(separador).append("\n\n");
+		text.append("\t\tInicio del juego\n\n").append(separador).append("\n");
+		iu.mostrarMensaje(text.toString());
 	}
 
 	public void turno(Jugador jugador) {
@@ -104,7 +107,7 @@ public class Juego {
 		text.append(msg);
 		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
-		Collections.rotate(jugadores, jugadores.indexOf(jugadorRand));
+		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
 	}
 
 }
