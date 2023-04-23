@@ -141,8 +141,7 @@ public class IU {
 		mostrarMensaje("Jugador actual: \t");
 		mostrarJugador(jugador);
 		mostrarMensaje("Estado de la mesa: \t");
-		mesa.toString();
-		//Implementar funcion "mostrarMesa"???
+		System.out.println(mesa.toString());
 	}
 
 	public Carta pedirCarta(Jugador jugador) {
