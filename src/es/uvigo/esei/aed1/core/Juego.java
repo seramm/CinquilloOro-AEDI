@@ -80,7 +80,7 @@ public class Juego {
 		text.append(msg);
 		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
-		Collections.rotate(jugadores, jugadores.indexOf(jugadorRand));
+		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
 	}
 
 }
