@@ -68,13 +68,21 @@ public class Juego {
 		iu.mostrarMensaje(text.toString());
 
 		//Indice del jugador actual
-		int indiceJugadorActual = 0;
+		Jugador jugadorActual = jugadores.get(0);
 
 		//Rotacion de turnos de forma circular
 		while (true) {
-			System.out.println("Es el turno de: " + jugadores.get(indiceJugadorActual));
-			turno(jugadores.get(indiceJugadorActual));
-			indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
+                    if (jugadorActual.getMano().isEmpty())
+                    {
+                        System.out.println(jugadorActual.getNombre() + " no tiene cartas");
+                        break;
+                    }  
+                    else
+                    {
+                        int indiceJugadorActual = jugadores.indexOf(jugadorActual);
+                        turno (jugadorActual);
+                        indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
+                    }   	
 		}
 	}
 
