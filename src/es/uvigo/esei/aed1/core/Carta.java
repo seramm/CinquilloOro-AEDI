@@ -48,19 +48,23 @@ public class Carta {
 	public static Carta stringToCarta(String carta) {
 		boolean encontrado = false;
 		PALOS[] palos = PALOS.values();
+                
+                if(carta == null){
+                    return null;
+                }else{
+                    String[] splitCarta = carta.split("-");
+                    int num = Integer.parseInt(splitCarta[0]);
+                    PALOS paloCarta = PALOS.BASTOS;
 
-		String[] splitCarta = carta.split("-");
-		int num = Integer.parseInt(splitCarta[0]);
-		PALOS paloCarta = PALOS.BASTOS;
+                    for (int i = 0; i < palos.length && !encontrado; i++) {
+                            if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
+                                    paloCarta = palos[i];
+                                    encontrado = true;
+                            }
+                    }
 
-		for (int i = 0; i < palos.length && !encontrado; i++) {
-			if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
-				paloCarta = palos[i];
-				encontrado = true;
-			}
-		}
-
-		return new Carta(num, paloCarta);
+                    return new Carta(num, paloCarta);
+                }
 	}
 
 	@Override

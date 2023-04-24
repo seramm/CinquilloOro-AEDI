@@ -91,10 +91,12 @@ public class Juego {
 
 		while (puede == false) {
 			carta = iu.pedirCarta(jugador);
-			if (jugador.getMano().contains(carta)) {
+			if (carta == null){
+				break;
+			} else if (jugador.getMano().contains(carta)) {
 				puede = mesa.ponerCarta(carta);
 				jugador.quitarCarta(carta);
-			} else {
+                        }else{
 				iu.mostrarMensaje("No tienes la carta " + carta.toString());
 			}
 		}
