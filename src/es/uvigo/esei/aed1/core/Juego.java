@@ -77,7 +77,7 @@ public class Juego {
                    turno(jugadorActual);
                    indice++;
                    jugadorActual = jugadores.get(indice);
-                   if (indice > jugadores.size())
+                   if (indice >= jugadores.size())
                    {
                        indice = 0;
                    }
