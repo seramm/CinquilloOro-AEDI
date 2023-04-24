@@ -81,7 +81,8 @@ public class Juego {
                    {
                        indice = 0;
                    }
-                }    
+                }
+                iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
 	}
 
 	public void turno(Jugador jugador) {
