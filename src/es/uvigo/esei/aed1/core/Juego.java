@@ -67,20 +67,15 @@ public class Juego {
 		text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
 		iu.mostrarMensaje(text.toString());
 
-		for (Jugador i : jugadores) {
-			turno(i);
+		//Indice del jugador actual
+		int indiceJugadorActual = 0;
+
+		//Rotacion de turnos de forma circular
+		while (true) {
+			System.out.println("Es el turno de: " + jugadores.get(indiceJugadorActual));
+			turno(jugadores.get(indiceJugadorActual));
+			indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
 		}
-                
-                //Indice del jugador actual
-                int indiceJugadorActual = 0;
-                
-                //Rotacion de turnos de forma circular
-                while(true)
-                {
-                    System.out.println("Es el turno de: " + jugadores.get(indiceJugadorActual));
-                    turno (jugadores.get(indiceJugadorActual));
-                    indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
-                }
 	}
 
 	public void turno(Jugador jugador) {
