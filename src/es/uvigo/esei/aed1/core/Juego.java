@@ -77,11 +77,12 @@ public class Juego {
                    turno(jugadorActual);
                    indice++;
                    jugadorActual = jugadores.get(indice);
-                   if (indice > jugadores.size())
+                   if (indice >= jugadores.size())
                    {
                        indice = 0;
                    }
-                }    
+                }
+                iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
 	}
 
 	public void turno(Jugador jugador) {
