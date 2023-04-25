@@ -67,9 +67,23 @@ public class Juego {
 		text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
 		iu.mostrarMensaje(text.toString());
 
-		for (Jugador i : jugadores) {
-			turno(i);
-		}
+		//Indice del jugador actual
+		Jugador jugadorActual = jugadores.get(0);
+
+		//Rotacion de turnos de forma circular
+                int indice = 0;
+                do
+                {
+                   turno(jugadorActual);
+                   indice++;
+                   jugadorActual = jugadores.get(indice);
+                   if (indice+1 >= jugadores.size())
+                   {
+                       indice = 0;
+                   }
+                }while (!jugadorActual.getMano().isEmpty());
+                
+                iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
 	}
 
 	public void turno(Jugador jugador) {
@@ -79,10 +93,12 @@ public class Juego {
 
 		while (puede == false) {
 			carta = iu.pedirCarta(jugador);
-			if (jugador.getMano().contains(carta)) {
+			if (carta == null){
+				break;
+			} else if (jugador.getMano().contains(carta)) {
 				puede = mesa.ponerCarta(carta);
 				jugador.quitarCarta(carta);
-			} else {
+                        }else{
 				iu.mostrarMensaje("No tienes la carta " + carta.toString());
 			}
 		}

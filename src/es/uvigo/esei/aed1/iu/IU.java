@@ -150,6 +150,10 @@ public class IU {
 
 	public Carta pedirCarta(Jugador jugador) {
 		String carta = leeString("Carta que quieres poner(El formato es NN-X, donde NN es el número y X la inicial del palo. Escribe s para saltar turno): ");
-		return Carta.stringToCarta(carta);
+		if(carta.equalsIgnoreCase("s")){
+                    return null;
+                }else{
+                    return Carta.stringToCarta(carta);
+                }
 	}
 }
