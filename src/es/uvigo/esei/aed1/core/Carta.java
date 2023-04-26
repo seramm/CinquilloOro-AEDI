@@ -18,6 +18,13 @@ public class Carta {
 	};
 	private final int numero;
 	private final PALOS palo;
+        
+        //Colores para cada palo
+        public static final String YELLOW_BOLD = "\033[1;33m"; // YELLOW
+        public static final String ANSI_CYAN = "\u001B[36m";
+        public static final String ANSI_RED = "\u001B[31m";
+        public static final String ANSI_GREEN = "\u001B[32m";
+        public static final String ANSI_RESET = "\u001B[0m";
 
 	/**
 	 * Define una carta con su número y palo
@@ -80,27 +87,27 @@ public class Carta {
 	public String toString() {
 		StringBuilder toret = new StringBuilder();
 
-		toret.append(numero).append(" de ");
+		//toret.append(numero).append(" de ");
 
 		if (null == getPalo()) {
 			toret.append("oros");
 		} else {
 			switch (getPalo()) {
 				case BASTOS:
-					toret.append("bastos");
+					toret.append(ANSI_GREEN + numero + " de " + "bastos");
 					break;
 				case COPAS:
-					toret.append("copas");
+					toret.append(ANSI_RED + numero + " de " + "copas");
 					break;
 				case ESPADAS:
-					toret.append("espadas");
+					toret.append(ANSI_CYAN + numero + " de " + "espadas");
 					break;
 				case OROS:
-					toret.append("oros");
+					toret.append(YELLOW_BOLD + numero + " de " + "oros");
 					break;
 			}
 		}
-
+                toret.append(ANSI_RESET);
 		return toret.toString();
 	}
 
