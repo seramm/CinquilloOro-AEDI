@@ -87,8 +87,6 @@ public class Carta {
 	public String toString() {
 		StringBuilder toret = new StringBuilder();
 
-		//toret.append(numero).append(" de ");
-
 		if (null == getPalo()) {
 			toret.append("oros");
 		} else {
@@ -113,8 +111,26 @@ public class Carta {
 
 	public String toStringShort() {
 		StringBuilder toret = new StringBuilder();
-		toret.append(String.format("%02d", getNumero())).append("-");
-		toret.append(getPalo().toString().toUpperCase().charAt(0));
+		
+                switch (getPalo()) {
+                case BASTOS:
+                    toret.append(ANSI_GREEN + String.format("%02d", getNumero())).append("-");
+                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
+                    break;
+                case COPAS:
+                    toret.append(ANSI_RED + String.format("%02d", getNumero())).append("-");
+                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
+                    break;
+                case ESPADAS:
+                    toret.append(ANSI_CYAN + String.format("%02d", getNumero())).append("-");
+                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
+                    break;
+                case OROS:
+                    toret.append(YELLOW_BOLD + String.format("%02d", getNumero())).append("-");
+                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
+                    break;
+            }
+
 
 		return toret.toString();
 	}
