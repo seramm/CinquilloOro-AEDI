@@ -13,7 +13,7 @@ import java.util.ArrayDeque;
 
 public class Mesa {
 
-	Deque<Carta>[] cartas;
+	private Deque<Carta>[] cartas;
 
 	public Mesa() {
 		cartas = new Deque[4];

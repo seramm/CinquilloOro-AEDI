@@ -133,12 +133,12 @@ public class Juego {
         if(puede == false){
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < jugador.getMano().size(); j++) {
-                    if(mesa.cartas[i].peekFirst() == null || mesa.cartas[i].peekLast() == null){
+                    if(mesa.getCartas()[i].peekFirst() == null || mesa.getCartas()[i].peekLast() == null){
                         break;
-                    }else if(mesa.cartas[i].peekFirst().getNumero() == jugador.getMano().get(j).getNumero()+1 && mesa.cartas[i].peekFirst().getPalo()== jugador.getMano().get(j).getPalo()){
+                    }else if(mesa.getCartas()[i].peekFirst().getNumero() == jugador.getMano().get(j).getNumero()+1 && mesa.getCartas()[i].peekFirst().getPalo()== jugador.getMano().get(j).getPalo()){
                         puede = true;
                         break;
-                    }else if(mesa.cartas[i].peekLast().getNumero() == jugador.getMano().get(j).getNumero()-1 && mesa.cartas[i].peekLast().getPalo()== jugador.getMano().get(j).getPalo()){
+                    }else if(mesa.getCartas()[i].peekLast().getNumero() == jugador.getMano().get(j).getNumero()-1 && mesa.getCartas()[i].peekLast().getPalo()== jugador.getMano().get(j).getPalo()){
                         puede = true;
                         break;
                 }
