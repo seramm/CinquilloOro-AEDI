@@ -18,13 +18,6 @@ public class Carta {
 	};
 	private final int numero;
 	private final PALOS palo;
-        
-        //Colores para cada palo
-        public static final String YELLOW_BOLD = "\033[1;33m"; // YELLOW
-        public static final String ANSI_CYAN = "\u001B[36m";
-        public static final String ANSI_RED = "\u001B[31m";
-        public static final String ANSI_GREEN = "\u001B[32m";
-        public static final String ANSI_RESET = "\u001B[0m";
 
 	/**
 	 * Define una carta con su número y palo
@@ -87,50 +80,34 @@ public class Carta {
 	public String toString() {
 		StringBuilder toret = new StringBuilder();
 
+		toret.append(numero).append(" de ");
+
 		if (null == getPalo()) {
 			toret.append("oros");
 		} else {
 			switch (getPalo()) {
 				case BASTOS:
-					toret.append(ANSI_GREEN + numero + " de " + "bastos");
+					toret.append("bastos");
 					break;
 				case COPAS:
-					toret.append(ANSI_RED + numero + " de " + "copas");
+					toret.append("copas");
 					break;
 				case ESPADAS:
-					toret.append(ANSI_CYAN + numero + " de " + "espadas");
+					toret.append("espadas");
 					break;
 				case OROS:
-					toret.append(YELLOW_BOLD + numero + " de " + "oros");
+					toret.append("oros");
 					break;
 			}
 		}
-                toret.append(ANSI_RESET);
+
 		return toret.toString();
 	}
 
 	public String toStringShort() {
 		StringBuilder toret = new StringBuilder();
-		
-                switch (getPalo()) {
-                case BASTOS:
-                    toret.append(ANSI_GREEN + String.format("%02d", getNumero())).append("-");
-                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
-                    break;
-                case COPAS:
-                    toret.append(ANSI_RED + String.format("%02d", getNumero())).append("-");
-                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
-                    break;
-                case ESPADAS:
-                    toret.append(ANSI_CYAN + String.format("%02d", getNumero())).append("-");
-                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
-                    break;
-                case OROS:
-                    toret.append(YELLOW_BOLD + String.format("%02d", getNumero())).append("-");
-                    toret.append(getPalo().toString().toUpperCase().charAt(0) + ANSI_RESET);
-                    break;
-            }
-
+		toret.append(String.format("%02d", getNumero())).append("-");
+		toret.append(getPalo().toString().toUpperCase().charAt(0));
 
 		return toret.toString();
 	}
