@@ -5,6 +5,7 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
+import es.uvigo.esei.aed1.core.Mesa;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -86,19 +87,23 @@ public class Juego {
 		boolean puede = false;
 		Carta carta;
 		iu.mostrarTurno(jugador, mesa);
+                
+                if(saltarTurno(jugador) == true){
+		                  while (puede == false) {
+                        carta = iu.pedirCarta(jugador);
 
-		while (puede == false) {
-			carta = iu.pedirCarta(jugador);
-			if (carta == null){
-				break;
-			} else if (jugador.getMano().contains(carta)) {
-				puede = mesa.ponerCarta(carta);
-				jugador.quitarCarta(carta);
-                        }else{
-				iu.mostrarMensaje("No tienes la carta " + carta.toString());
-			}
-		}
-	}
+                        if (jugador.getMano().contains(carta)) {
+                            puede = mesa.ponerCarta(carta);
+                            jugador.quitarCarta(carta);
+
+                        } else {
+                            iu.mostrarMensaje("No tienes la carta " + carta.toString());
+                        }
+                    }
+                }else{
+                    iu.mostrarMensaje("Turno saltado");
+                }
+	}       
 
 	/**
 	 * Escoge un jugador aleatorio de los contenidos en List<Jugador> jugadores.
@@ -115,5 +120,35 @@ public class Juego {
 		iu.mostrarMensaje(text.toString());
 		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
 	}
+        
+    private boolean saltarTurno(Jugador jugador) {
+        boolean puede = false;
+        
+        for (int i = 0; i < jugador.getMano().size(); i++) {
+            if (jugador.getMano().get(i).getNumero() == 5) {
+                puede = true;
+            } 
+        }
+        
+        if(puede == false){
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < jugador.getMano().size(); j++) {
+                    if(mesa.getCartas()[i].peekFirst() == null || mesa.getCartas()[i].peekLast() == null){
+                        break;
+                    }else if(mesa.getCartas()[i].peekFirst().getNumero() == jugador.getMano().get(j).getNumero()+1 && mesa.getCartas()[i].peekFirst().getPalo()== jugador.getMano().get(j).getPalo()){
+                        puede = true;
+                        break;
+                    }else if(mesa.getCartas()[i].peekLast().getNumero() == jugador.getMano().get(j).getNumero()-1 && mesa.getCartas()[i].peekLast().getPalo()== jugador.getMano().get(j).getPalo()){
+                        puede = true;
+                        break;
+                }
+                    
+                }
+                
+            }
+        }
+        
+        return puede;
+    }
 
 }
