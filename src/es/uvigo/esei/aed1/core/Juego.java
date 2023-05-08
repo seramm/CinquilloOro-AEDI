@@ -49,6 +49,9 @@ public class Juego {
 			jugadores.add(new Jugador(i));
 		}
                 
+                //Indice del jugador actual
+                    Jugador jugadorActual = jugadores.get(0);
+                
                 while(mesa.as(mesa) == false){
                     iu.mostrarMensaje("\nBarajando");
                     baraja.barajarBaraja();		// Barajado
@@ -71,8 +74,7 @@ public class Juego {
                     text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
                     iu.mostrarMensaje(text.toString());
 
-                    //Indice del jugador actual
-                    Jugador jugadorActual = jugadores.get(0);
+                    
 
                     //Rotacion de turnos de forma circular
                     int indice = 0;
@@ -86,16 +88,19 @@ public class Juego {
                             }else if(jugadorActual.getMano().isEmpty() == true){
                                 break;
                             }
-                        }
+                        }                
                     }
+                    //Asignacion de puntos de partida
+                    jugadorActual.puntosPartidaSumados(jugadorActual.getPuntosPartida());
+                    
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
                     iu.mostrarMensaje(iu.separador);
                     iu.mostrarMensaje("Nuevo juego: \n");
                     mesa = new Mesa();
-                    baraja = new Baraja();
+                    baraja = new Baraja();          
                 }
-                
+                jugadorActual.puntosAsDeOrosSumados(jugadorActual.getPuntosPartida());
                 iu.mostrarMensaje("Se ha colocado el as de oros");
 	}
 
