@@ -3,6 +3,9 @@
  */
 package es.uvigo.esei.aed1.core;
 
+import java.lang.NumberFormatException;
+import es.uvigo.esei.aed1.iu.IU;
+
 /**
  * Representa una carta, formada por un número y su palo correspondiente.
  *
@@ -45,7 +48,7 @@ public class Carta {
 		return palo;
 	}
 
-	public static Carta stringToCarta(String carta) {
+	/*public static Carta stringToCarta(String carta) {
 		boolean encontrado = false;
 		PALOS[] palos = PALOS.values();
                 
@@ -65,6 +68,34 @@ public class Carta {
 
                     return new Carta(num, paloCarta);
                 }
+	}
+        */
+        
+        public static Carta stringToCarta(String carta) {
+		boolean encontrado = false;
+		PALOS[] palos = PALOS.values();
+                
+                try {
+                    String[] splitCarta = carta.split("-");
+                    int num = Integer.parseInt(splitCarta[0]);
+                    PALOS paloCarta = PALOS.BASTOS;
+
+                    for (int i = 0; i < palos.length && !encontrado; i++) {
+                            if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
+                                    paloCarta = palos[i];
+                                    encontrado = true;
+                            }
+                    }
+                    
+                    return new Carta(num, paloCarta);
+                }
+                catch(NumberFormatException e)
+                {
+                    IU iu = new IU();
+                    iu.mostrarMensaje("Error: " + e.getMessage());
+                }
+                
+                return null;
 	}
 
 	@Override
