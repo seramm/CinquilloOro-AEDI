@@ -90,6 +90,9 @@ public class Juego {
                     }
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
+                    if(mesa.as(mesa) == true){
+                        break;
+                    }
                     iu.mostrarMensaje(iu.separador);
                     iu.mostrarMensaje("Nuevo juego: \n");
                     mesa = new Mesa();
