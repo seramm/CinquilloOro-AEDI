@@ -82,12 +82,17 @@ public class Juego {
                             turno(jugadorActual);
                             if(mesa.as(mesa) == true){
                                 break;
+                            }else if(jugadorActual.getMano().isEmpty() == true){
+                                break;
                             }
                         }
                     }
                     iu.mostrarMensaje(mesa.toStringGraph());
-                    iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
-                    
+                    iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
+                    iu.mostrarMensaje(iu.separador);
+                    iu.mostrarMensaje("Nuevo juego: \n");
+                    mesa = new Mesa();
+                    baraja = new Baraja();
                 }
                 
                 iu.mostrarMensaje("Se ha colocado el as de oros");
