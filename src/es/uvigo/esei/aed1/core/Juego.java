@@ -23,7 +23,9 @@ public class Juego {
 	private Baraja baraja = new Baraja();
 	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
-
+        private int multiplicador = 0;
+        private Jugador ganador = new Jugador("ganador");
+        
 	/**
 	 * Crea un juego con su interfaz de usuario.
 	 *
@@ -49,6 +51,9 @@ public class Juego {
 			jugadores.add(new Jugador(i));
 		}
                 
+                //Indice del jugador actual
+                    Jugador jugadorActual = jugadores.get(0);
+                
                 while(mesa.as(mesa) == false){
                     iu.mostrarMensaje("\nBarajando");
                     baraja.barajarBaraja();		// Barajado
@@ -71,8 +76,7 @@ public class Juego {
                     text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
                     iu.mostrarMensaje(text.toString());
 
-                    //Indice del jugador actual
-                    Jugador jugadorActual = jugadores.get(0);
+                    
 
                     //Rotacion de turnos de forma circular
                     int indice = 0;
@@ -86,8 +90,12 @@ public class Juego {
                             }else if(jugadorActual.getMano().isEmpty() == true){
                                 break;
                             }
-                        }
+                        }                
                     }
+                    //Asignacion de puntos de partida
+                    jugadorActual.setPuntosPartida(jugadorActual.getPuntosPartida()+4);
+                    multiplicador = multiplicador + 2; //Cada ronda los puntos del as de oros valen más
+                    
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
                     if(mesa.as(mesa) == true){
@@ -95,11 +103,26 @@ public class Juego {
                     }
                     iu.mostrarMensaje(iu.separador);
                     iu.mostrarMensaje("Nuevo juego: \n");
+                    
                     mesa = new Mesa();
-                    baraja = new Baraja();
+                    baraja = new Baraja();          
                 }
+                jugadorActual.setPuntosOros(multiplicador);
+                iu.mostrarMensaje("Se ha colocado el as de oros \n");
                 
-                iu.mostrarMensaje("Se ha colocado el as de oros");
+                ganador.setPuntosTotales(0); //Incializamos el "Ganador" a comaparar con 0 puntos
+                
+                for (int i = 0; i < jugadores.size(); i++) {
+                    jugadores.get(i).setPuntosTotales(jugadores.get(i).getPuntosOros()+jugadores.get(i).getPuntosPartida());
+                    iu.mostrarMensaje("Puntos jugador " + jugadores.get(i).getNombre() + ": \n" + jugadores.get(i).getPuntosTotales() + "\n");
+                }
+                for (int i = 0; i < jugadores.size(); i++) {
+                    if(jugadores.get(i).getPuntosTotales() > ganador.getPuntosTotales()){
+                       ganador = jugadores.get(i);
+                    }
+                }
+               
+                iu.mostrarMensaje("Ganador: \n" + ganador.getNombre());
 	}
 
 	public void turno(Jugador jugador) {
