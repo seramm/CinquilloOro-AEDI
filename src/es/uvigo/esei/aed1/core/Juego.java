@@ -92,6 +92,7 @@ public class Juego {
                             }
                         }                
                     }
+                    
                     //Asignacion de puntos de partida
                     jugadorActual.setPuntosPartida(jugadorActual.getPuntosPartida()+4);
                     multiplicador = multiplicador + 2; //Cada ronda los puntos del as de oros valen más
