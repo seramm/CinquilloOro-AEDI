@@ -38,6 +38,7 @@ public class Juego {
 	 * cartas y selecciona el jugador inicial.
 	 */
 	public void jugar() {
+            
 		StringBuilder text = new StringBuilder();
 		text.append(iu.separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(iu.separador);
 		iu.mostrarMensaje(text.toString());
@@ -46,40 +47,50 @@ public class Juego {
 		for (String i : nombres) {
 			jugadores.add(new Jugador(i));
 		}
-		iu.mostrarMensaje("\nBarajando");
-		baraja.barajarBaraja();		// Barajado
-		iu.mostrarMensaje("Baraja mezclada");
+                
+                while(mesa.as(mesa) == false){
+                    iu.mostrarMensaje("\nBarajando");
+                    baraja.barajarBaraja();		// Barajado
+                    iu.mostrarMensaje("Baraja mezclada");
 
-		iu.mostrarMensaje("\nRepartiendo cartas");
-		// Reparto de la baraja
-		while (!baraja.getBaraja().isEmpty()) {
-			for (Jugador i : jugadores) {
-				i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
-			}
-		}
-		//Mostrar jugadores
-		iu.mostrarJugadores(jugadores);
-		//Mostrar jugador que empieza
-		jugadorAleatorio("\tEl jugador inicial es: ");
-
-		text = new StringBuilder();
-		text.append("\n\n").append(iu.separador).append("\n\n");
-		text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
-		iu.mostrarMensaje(text.toString());
-
-		//Indice del jugador actual
-		Jugador jugadorActual = jugadores.get(0);
-
-		//Rotacion de turnos de forma circular
-                int indice = 0;
-                while (!jugadorActual.getMano().isEmpty()){
-                    for (int i = 0; i < jugadores.size(); i++) {
-                        jugadorActual = jugadores.get(i);
-                        turno(jugadorActual);
+                    iu.mostrarMensaje("\nRepartiendo cartas");
+                    // Reparto de la baraja
+                    while (!baraja.getBaraja().isEmpty()) {
+                            for (Jugador i : jugadores) {
+                                    i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+                            }
                     }
+                    //Mostrar jugadores
+                    iu.mostrarJugadores(jugadores);
+                    //Mostrar jugador que empieza
+                    jugadorAleatorio("\tEl jugador inicial es: ");
+
+                    text = new StringBuilder();
+                    text.append("\n\n").append(iu.separador).append("\n\n");
+                    text.append("\t\tInicio del juego\n\n").append(iu.separador).append("\n");
+                    iu.mostrarMensaje(text.toString());
+
+                    //Indice del jugador actual
+                    Jugador jugadorActual = jugadores.get(0);
+
+                    //Rotacion de turnos de forma circular
+                    int indice = 0;
+                    while (!jugadorActual.getMano().isEmpty() && mesa.as(mesa) == false){
+                        for (int i = 0; i < jugadores.size(); i++) {
+                           
+                            jugadorActual = jugadores.get(i);
+                            turno(jugadorActual);
+                            if(mesa.as(mesa) == true){
+                                break;
+                            }
+                        }
+                    }
+                    iu.mostrarMensaje(mesa.toStringGraph());
+                    iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
+                    
                 }
                 
-                iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre());
+                iu.mostrarMensaje("Se ha colocado el as de oros");
 	}
 
 	public void turno(Jugador jugador) {
