@@ -25,6 +25,7 @@ public class Juego {
 	private List<Jugador> jugadores = new LinkedList<>();
         private int multiplicador = 0;
         private Jugador ganador = new Jugador("ganador");
+        private Jugador jugadorAs;
         
 	/**
 	 * Crea un juego con su interfaz de usuario.
@@ -64,6 +65,11 @@ public class Juego {
                     while (!baraja.getBaraja().isEmpty()) {
                             for (Jugador i : jugadores) {
                                     i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+                                    
+                                    //Guardar el jugador con el As de Oros en caso de que haya que sumarle los puntos de As más adelante
+                                    if(i.getMano().contains(new Carta(1, Carta.PALOS.OROS))){
+                                        jugadorAs = i;
+                                    }
                             }
                     }
                     //Mostrar jugadores
@@ -124,7 +130,9 @@ public class Juego {
                     }
                     
                 }
-                jugadorActual.setPuntosOros(multiplicador);
+                
+                //Suma de los puntos de As al jugador que tenía el As, guardado previamente
+                jugadorAs.setPuntosOros(multiplicador);
                 iu.mostrarMensaje("Se ha colocado el as de oros \n");
                 
                 ganador.setPuntosTotales(0); //Incializamos el "Ganador" a comaparar con 0 puntos
