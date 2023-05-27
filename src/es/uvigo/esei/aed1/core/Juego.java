@@ -25,6 +25,7 @@ public class Juego {
 	private List<Jugador> jugadores = new LinkedList<>();
         private int multiplicador = 0;
         private Jugador ganador = new Jugador("ganador");
+        private boolean As = false;
         
 	/**
 	 * Crea un juego con su interfaz de usuario.
@@ -42,6 +43,7 @@ public class Juego {
 	 */
 	public void jugar() {
             
+                
 		StringBuilder text = new StringBuilder();
 		text.append(iu.separador).append("\n\n\t\tJuego Cinquillo Oro\n").append("\t\t    6 de Copas\n\n").append(iu.separador);
 		iu.mostrarMensaje(text.toString());
@@ -54,7 +56,7 @@ public class Juego {
                 //Indice del jugador actual
                     Jugador jugadorActual = jugadores.get(0);
                 
-                while(mesa.as(mesa) == false){
+                while(As == false){
                     iu.mostrarMensaje("\nBarajando");
                     baraja.barajarBaraja();		// Barajado
                     iu.mostrarMensaje("Baraja mezclada");
@@ -80,14 +82,13 @@ public class Juego {
 
                     //Rotacion de turnos de forma circular
                     int indice = 0;
-                    while (!jugadorActual.getMano().isEmpty() && mesa.as(mesa) == false){
+                    while (!jugadorActual.getMano().isEmpty()){
                         for (int i = 0; i < jugadores.size(); i++) {
                            
                             jugadorActual = jugadores.get(i);
                             turno(jugadorActual);
-                            if(mesa.as(mesa) == true){
-                                break;
-                            }else if(jugadorActual.getMano().isEmpty() == true){
+                            
+                            if(jugadorActual.getMano().isEmpty() == true){
                                 break;
                             }
                         }                
@@ -98,7 +99,7 @@ public class Juego {
                     
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
-                    if(mesa.as(mesa) == true){
+                    if(As == true){
                         break;
                     }
                     iu.mostrarMensaje(iu.separador);
@@ -137,6 +138,9 @@ public class Juego {
                         if (jugador.getMano().contains(carta)) {
                             puede = mesa.ponerCarta(carta);
                             jugador.quitarCarta(carta);
+                            if(carta.getPalo() == Carta.PALOS.OROS && carta.getNumero() == 1){
+                                As = true;
+                            }
 
                         } else {
                             iu.mostrarMensaje("No tienes la carta " + carta.toString());
