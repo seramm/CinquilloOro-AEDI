@@ -104,8 +104,22 @@ public class Juego {
                     iu.mostrarMensaje(iu.separador);
                     iu.mostrarMensaje("Nuevo juego: \n");
                     
+                    //Reseteo de la mesa y la baraja
                     mesa = new Mesa();
-                    baraja = new Baraja();          
+                    baraja = new Baraja();
+                    
+                    //Vaciado de las manos de los jugadores
+                    for(Jugador i: jugadores){
+                        i.getMano().clear();
+                    }
+                    
+                    //Nuevo reparto de manos
+                    while (!baraja.getBaraja().isEmpty()) {
+                            for (Jugador i : jugadores) {
+                                    i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+                            }
+                    }
+                    
                 }
                 jugadorActual.setPuntosOros(multiplicador);
                 iu.mostrarMensaje("Se ha colocado el as de oros \n");
