@@ -84,30 +84,27 @@ public class Carta {
 	}
 
 	@Override
-	public String toString() {
-		StringBuilder toret = new StringBuilder();
+	   public String toString() {
+        StringBuilder toret = new StringBuilder();
 
-		if (null == getPalo()) {
-			toret.append("oros");
-		} else {
-			switch (getPalo()) {
-				case BASTOS:
-					toret.append(ANSI_GREEN + numero + " de " + "bastos");
-					break;
-				case COPAS:
-					toret.append(ANSI_RED + numero + " de " + "copas");
-					break;
-				case ESPADAS:
-					toret.append(ANSI_CYAN + numero + " de " + "espadas");
-					break;
-				case OROS:
-					toret.append(YELLOW_BOLD + numero + " de " + "oros");
-					break;
-			}
-		}
-                toret.append(ANSI_RESET);
-		return toret.toString();
-	}
+        switch (getPalo()) {
+            case BASTOS:
+                toret.append(ANSI_GREEN + numero + " de " + "bastos");
+                break;
+            case COPAS:
+                toret.append(ANSI_RED + numero + " de " + "copas");
+                break;
+            case ESPADAS:
+                toret.append(ANSI_CYAN + numero + " de " + "espadas");
+                break;
+            case OROS:
+                toret.append(YELLOW_BOLD + numero + " de " + "oros");
+                break;
+        }
+
+        toret.append(ANSI_RESET);
+        return toret.toString();
+    }
 
 	public String toStringShort() {
 		StringBuilder toret = new StringBuilder();
