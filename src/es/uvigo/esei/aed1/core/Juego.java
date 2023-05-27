@@ -80,21 +80,23 @@ public class Juego {
 
                     //Rotacion de turnos de forma circular
                     int indice = 0;
-                    while (!jugadorActual.getMano().isEmpty() && mesa.as(mesa) == false){
+                    while (!jugadorActual.getMano().isEmpty()){
                         for (int i = 0; i < jugadores.size(); i++) {
                            
                             jugadorActual = jugadores.get(i);
                             turno(jugadorActual);
-                            if(mesa.as(mesa) == true){
-                                break;
-                            }else if(jugadorActual.getMano().isEmpty() == true){
+                            
+                            if(jugadorActual.getMano().isEmpty()){
                                 break;
                             }
+                            
                         }                
                     }
                     //Asignacion de puntos de partida
                     jugadorActual.setPuntosPartida(jugadorActual.getPuntosPartida()+4);
-                    multiplicador = multiplicador + 2; //Cada ronda los puntos del as de oros valen más
+                    
+                    //Cada ronda los puntos del as de oros valen más
+                    multiplicador = multiplicador + 2; 
                     
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
@@ -107,6 +109,7 @@ public class Juego {
                     //Reseteo de la mesa y la baraja
                     mesa = new Mesa();
                     baraja = new Baraja();
+                    baraja.barajarBaraja();
                     
                     //Vaciado de las manos de los jugadores
                     for(Jugador i: jugadores){
