@@ -94,7 +94,7 @@ public class Juego {
                         }                
                     }
                     //Asignacion de puntos de partida
-                    jugadorActual.setPuntosPartida(jugadorActual.getPuntosPartida()+4);
+                    jugadorActual.setPuntos(jugadorActual.getPuntos()+4);
                     multiplicador = multiplicador + 2; //Cada ronda los puntos del as de oros valen más
                     
                     iu.mostrarMensaje(mesa.toStringGraph());
@@ -108,22 +108,31 @@ public class Juego {
                     mesa = new Mesa();
                     baraja = new Baraja();          
                 }
-                jugadorActual.setPuntosOros(multiplicador);
+                jugadorActual.setPuntos(jugadorActual.getPuntos()+multiplicador);
                 iu.mostrarMensaje("Se ha colocado el as de oros \n");
                 
-                ganador.setPuntosTotales(0); //Incializamos el "Ganador" a comaparar con 0 puntos
                 
-                for (int i = 0; i < jugadores.size(); i++) {
-                    jugadores.get(i).setPuntosTotales(jugadores.get(i).getPuntosOros()+jugadores.get(i).getPuntosPartida());
-                    iu.mostrarMensaje("Puntos jugador " + jugadores.get(i).getNombre() + ": \n" + jugadores.get(i).getPuntosTotales() + "\n");
+                
+                for (int i = 0; i < jugadores.size(); i++) { 
+                    iu.mostrarMensaje("Puntos jugador " + jugadores.get(i).getNombre() + ": \n" + jugadores.get(i).getPuntos() + "\n");
                 }
+                
+                int max = Integer.MIN_VALUE;
                 for (int i = 0; i < jugadores.size(); i++) {
-                    if(jugadores.get(i).getPuntosTotales() > ganador.getPuntosTotales()){
-                       ganador = jugadores.get(i);
+                    
+                    
+                    if(jugadores.get(i).getPuntos() > max){
+                       max = jugadores.get(i).getPuntos();
                     }
                 }
+                for (int i = 0; i < jugadores.size(); i++) {
+                    if(jugadores.get(i).getPuntos() == max){
+                        iu.mostrarMensaje("Ganador/es: \n"+jugadores.get(i).getNombre()+"\n");
+                    }
+                
+                }
                
-                iu.mostrarMensaje("Ganador: \n" + ganador.getNombre());
+                
 	}
 
 	public void turno(Jugador jugador) {
