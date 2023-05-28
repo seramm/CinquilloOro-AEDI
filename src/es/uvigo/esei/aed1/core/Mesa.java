@@ -6,8 +6,6 @@
  */
 package es.uvigo.esei.aed1.core;
 
-import es.uvigo.esei.aed1.iu.IU;
-
 import java.util.Deque;
 import java.util.ArrayDeque;
 
