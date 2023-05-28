@@ -5,7 +5,6 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
-import es.uvigo.esei.aed1.core.Mesa;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
