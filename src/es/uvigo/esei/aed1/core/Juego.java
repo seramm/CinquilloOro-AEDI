@@ -5,7 +5,6 @@
 package es.uvigo.esei.aed1.core;
 
 import es.uvigo.esei.aed1.iu.IU;
-import es.uvigo.esei.aed1.core.Mesa;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -75,7 +74,7 @@ public class Juego {
                     //Mostrar jugadores
                     iu.mostrarJugadores(jugadores);
                     //Mostrar jugador que empieza
-                    jugadorAleatorio("\tEl jugador inicial es: ");
+                    jugadorAleatorio();
 
                     text = new StringBuilder();
                     text.append("\n\n").append(iu.separador).append("\n\n");
@@ -177,12 +176,12 @@ public class Juego {
 	 *
 	 * @param msg texto a mostrar antes del jugador seleccionado.
 	 */
-	private void jugadorAleatorio(String msg) {
+	private void jugadorAleatorio() {
 		iu.mostrarMensaje("\n\nEscogiendo jugador aleatorio");
 		Random rand = new Random(System.currentTimeMillis());
 		Jugador jugadorRand = jugadores.get(rand.nextInt(jugadores.size()));
 		StringBuilder text = new StringBuilder();
-		text.append(msg);
+		text.append("\tEl jugador inicial es: ");
 		text.append(jugadorRand.getNombre());
 		iu.mostrarMensaje(text.toString());
 		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
