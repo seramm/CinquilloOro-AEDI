@@ -23,7 +23,8 @@ public class Juego {
 	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
         private int multiplicador = 0;
-        private Jugador ganador = new Jugador("ganador");
+        private Jugador jugadorAs;
+        private boolean As = false;
         
 	/**
 	 * Crea un juego con su interfaz de usuario.
@@ -53,7 +54,7 @@ public class Juego {
                 //Indice del jugador actual
                     Jugador jugadorActual = jugadores.get(0);
                 
-                while(mesa.as(mesa) == false){
+                while(As == false){
                     iu.mostrarMensaje("\nBarajando");
                     baraja.barajarBaraja();		// Barajado
                     iu.mostrarMensaje("Baraja mezclada");
@@ -63,6 +64,11 @@ public class Juego {
                     while (!baraja.getBaraja().isEmpty()) {
                             for (Jugador i : jugadores) {
                                     i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+                                    
+                                    //Guardar el jugador con el As de Oros en caso de que haya que sumarle los puntos de As más adelante
+                                    if(i.getMano().contains(new Carta(1, Carta.PALOS.OROS))){
+                                        jugadorAs = i;
+                                    }
                             }
                     }
                     //Mostrar jugadores
@@ -78,50 +84,73 @@ public class Juego {
                     
 
                     //Rotacion de turnos de forma circular
-                    int indice = 0;
-                    while (!jugadorActual.getMano().isEmpty() && mesa.as(mesa) == false){
+                    
+                    while (!jugadorActual.getMano().isEmpty()){
                         for (int i = 0; i < jugadores.size(); i++) {
                            
                             jugadorActual = jugadores.get(i);
                             turno(jugadorActual);
-                            if(mesa.as(mesa) == true){
-                                break;
-                            }else if(jugadorActual.getMano().isEmpty() == true){
+                            
+                            if(jugadorActual.getMano().isEmpty()){
                                 break;
                             }
+                            
                         }                
                     }
                     //Asignacion de puntos de partida
-                    jugadorActual.setPuntosPartida(jugadorActual.getPuntosPartida()+4);
-                    multiplicador = multiplicador + 2; //Cada ronda los puntos del as de oros valen más
+                    jugadorActual.setPuntos(jugadorActual.getPuntos()+4);
+                    
+                    //Cada ronda los puntos del as de oros valen más
+                    multiplicador = multiplicador + 2; 
                     
                     iu.mostrarMensaje(mesa.toStringGraph());
                     iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
-                    if(mesa.as(mesa) == true){
+                    if(As == true){
                         break;
                     }
                     iu.mostrarMensaje(iu.separador);
                     iu.mostrarMensaje("Nuevo juego: \n");
                     
+                    //Reseteo de la mesa y la baraja
                     mesa = new Mesa();
-                    baraja = new Baraja();          
+                    baraja = new Baraja();
+                    baraja.barajarBaraja();
+                    
+                    //Vaciado de las manos de los jugadores
+                    for(Jugador i: jugadores){
+                        i.getMano().clear();
+                    }
+                    
+                    //Nuevo reparto de manos
+                    while (!baraja.getBaraja().isEmpty()) {
+                            for (Jugador i : jugadores) {
+                                    i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
+                            }
+                    }
+                    
                 }
-                jugadorActual.setPuntosOros(multiplicador);
+                
+                //Suma de los puntos de As al jugador que tenía el As, guardado previamente
+                jugadorAs.setPuntos(jugadorAs.getPuntos()+multiplicador);
                 iu.mostrarMensaje("Se ha colocado el as de oros \n");
                 
-                ganador.setPuntosTotales(0); //Incializamos el "Ganador" a comaparar con 0 puntos
                 
-                for (int i = 0; i < jugadores.size(); i++) {
-                    jugadores.get(i).setPuntosTotales(jugadores.get(i).getPuntosOros()+jugadores.get(i).getPuntosPartida());
-                    iu.mostrarMensaje("Puntos jugador " + jugadores.get(i).getNombre() + ": \n" + jugadores.get(i).getPuntosTotales() + "\n");
+                int max = Integer.MIN_VALUE;
+                for(Jugador i : jugadores){
+                    if(i.getPuntos() > max){
+                        max = i.getPuntos();
+                    }
+                    iu.mostrarMensaje(i.getNombre() + ": " + i.getPuntos() + "\n");
                 }
-                for (int i = 0; i < jugadores.size(); i++) {
-                    if(jugadores.get(i).getPuntosTotales() > ganador.getPuntosTotales()){
-                       ganador = jugadores.get(i);
+                iu.mostrarMensaje("Ganador/es: \n");
+                for(Jugador i : jugadores){
+                    if(i.getPuntos() == max){
+                        iu.mostrarMensaje(i.getNombre() + "\n");
                     }
                 }
+                
                
-                iu.mostrarMensaje("Ganador: \n" + ganador.getNombre());
+                
 	}
 
 	public void turno(Jugador jugador) {
@@ -129,13 +158,17 @@ public class Juego {
 		Carta carta;
 		iu.mostrarTurno(jugador, mesa);
                 
-                if(saltarTurno(jugador) == true){
-		                  while (puede == false) {
+                if(puedeSeguir(jugador) == true){
+		    while (puede == false) {
                         carta = iu.pedirCarta(jugador);
 
                         if (jugador.getMano().contains(carta)) {
+                            if(carta.getNumero() == 1 && carta.getPalo() == Carta.PALOS.OROS){
+                                As = true;
+                            }
                             puede = mesa.ponerCarta(carta);
                             jugador.quitarCarta(carta);
+                           
 
                         } else {
                             iu.mostrarMensaje("No tienes la carta " + carta.toString());
@@ -162,7 +195,7 @@ public class Juego {
 		Collections.rotate(jugadores, -jugadores.indexOf(jugadorRand));
 	}
         
-    private boolean saltarTurno(Jugador jugador) {
+    private boolean puedeSeguir(Jugador jugador) {
         boolean puede = false;
         
         for (int i = 0; i < jugador.getMano().size(); i++) {
