@@ -84,7 +84,7 @@ public class Juego {
                     
 
                     //Rotacion de turnos de forma circular
-                    int indice = 0;
+                    
                     while (!jugadorActual.getMano().isEmpty()){
                         for (int i = 0; i < jugadores.size(); i++) {
                            
