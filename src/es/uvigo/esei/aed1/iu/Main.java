@@ -2,7 +2,9 @@
  * Cinquillo Oro - AEDI
  * 6 de Copas
  * https://github.com/seramm/CinquilloOro-AEDI
- * Entrega Prefinal
+ * 
+ * ENTREGA FINAL
+ * 
  */
 package es.uvigo.esei.aed1.iu;
 
