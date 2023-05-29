@@ -52,27 +52,24 @@ public class Carta {
 		return palo;
 	}
 
-	public static Carta stringToCarta(String carta) {
-		boolean encontrado = false;
-		PALOS[] palos = PALOS.values();
-                
-                if(carta == null){
-                    return null;
-                }else{
-                    String[] splitCarta = carta.split("-");
-                    int num = Integer.parseInt(splitCarta[0]);
-                    PALOS paloCarta = PALOS.BASTOS;
+        public static Carta stringToCarta(String carta) {
+            boolean encontrado = false;
+            PALOS[] palos = PALOS.values();
 
-                    for (int i = 0; i < palos.length && !encontrado; i++) {
-                            if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
-                                    paloCarta = palos[i];
-                                    encontrado = true;
-                            }
-                    }
+            String[] splitCarta = carta.split("-");
+            int num = Integer.parseInt(splitCarta[0]);
+            PALOS paloCarta = PALOS.BASTOS;
 
-                    return new Carta(num, paloCarta);
+            for (int i = 0; i < palos.length && !encontrado; i++) {
+                if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
+                    paloCarta = palos[i];
+                    encontrado = true;
                 }
-	}
+            }
+
+            return new Carta(num, paloCarta);
+
+        }
 
 	@Override
 	public boolean equals(Object object) {

@@ -90,15 +90,6 @@ public class Mesa {
 		return toret.toString();
 	}
         
-        public boolean as(Mesa mesa){
-            Carta as = new Carta(1,Carta.PALOS.OROS);
-            boolean esta = false;
-            for (int i = 0; i < 4; i++) {
-                if(mesa.cartas[i].contains(as)){
-                    esta = true;
-                }
-            }
-            return esta;
-        }
+        
 
 }

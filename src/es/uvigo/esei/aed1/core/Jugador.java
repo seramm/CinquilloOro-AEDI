@@ -17,9 +17,7 @@ public class Jugador {
 
 	private String nombre;
 	private List<Carta> mano = new LinkedList<>();
-        private int puntosPartida = 0;
-        private int puntosOros = 0;
-        private int puntosTotales = 0;
+        private int puntos = 0;
         
         
         
@@ -69,29 +67,15 @@ public class Jugador {
 		this.mano = mano;
 	}
 
-        public int getPuntosPartida() {
-            return puntosPartida;
+        public int getPuntos() {
+            return puntos;
         }
 
-        public int getPuntosOros() {
-            return puntosOros;
+        public void setPuntos(int puntos) {
+            this.puntos = puntos;
         }
 
-        public int getPuntosTotales() {
-            return puntosTotales;
-        }
         
-        public void setPuntosPartida(int puntosPartida) {
-            this.puntosPartida = puntosPartida;
-        }
-
-        public void setPuntosOros(int puntosOros) {
-            this.puntosOros = puntosOros;
-        }
-
-        public void setPuntosTotales(int puntosTotales) {
-            this.puntosTotales = puntosTotales;
-        }
 
 
 
