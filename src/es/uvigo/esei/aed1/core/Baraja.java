@@ -41,6 +41,10 @@ public class Baraja {
 		return baraja;
 	}
 
+	public boolean barajaVacia() {
+		return baraja.isEmpty();
+	}
+
 	/**
 	 * Mezcla las cartas pertenecientes a la baraja.
 	 */

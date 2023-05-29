@@ -85,6 +85,14 @@ public class Jugador {
 		mano.remove(carta);
 	}
 
+	public boolean manoVacia() {
+		return mano.isEmpty();
+	}
+
+	public boolean tieneCarta(Carta carta) {
+		return mano.contains(carta);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder();

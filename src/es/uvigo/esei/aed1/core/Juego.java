@@ -61,7 +61,7 @@ public class Juego {
 
 			iu.mostrarMensaje("\nRepartiendo cartas");
 			// Reparto de la baraja
-			while (!baraja.getBaraja().isEmpty()) {
+			while (!baraja.barajaVacia()) {
 				for (Jugador i : jugadores) {
 					i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 
@@ -82,13 +82,13 @@ public class Juego {
 			iu.mostrarMensaje(text.toString());
 
 			//Rotacion de turnos de forma circular
-			while (!jugadorActual.getMano().isEmpty()) {
+			while (!jugadorActual.manoVacia()) {
 				for (int i = 0; i < jugadores.size(); i++) {
 
 					jugadorActual = jugadores.get(i);
 					turno(jugadorActual);
 
-					if (jugadorActual.getMano().isEmpty()) {
+					if (jugadorActual.manoVacia()) {
 						break;
 					}
 
@@ -119,7 +119,7 @@ public class Juego {
 			}
 
 			//Nuevo reparto de manos
-			while (!baraja.getBaraja().isEmpty()) {
+			while (!baraja.barajaVacia()) {
 				for (Jugador i : jugadores) {
 					i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
 				}
@@ -156,8 +156,8 @@ public class Juego {
 			while (puede == false) {
 				carta = iu.pedirCarta(jugador);
 
-				if (jugador.getMano().contains(carta)) {
-					if (carta.getNumero() == 1 && carta.getPalo() == Carta.PALOS.OROS) {
+				if (jugador.tieneCarta(carta)) {
+					if (carta.equals(new Carta(1, Carta.PALOS.OROS))) {
 						As = true;
 					}
 					puede = mesa.ponerCarta(carta);
