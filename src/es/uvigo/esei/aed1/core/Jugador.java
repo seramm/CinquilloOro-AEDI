@@ -68,8 +68,8 @@ public class Jugador {
 		return puntos;
 	}
 
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
+	public void anadirPuntos(int puntos) {
+		this.puntos += puntos;
 	}
 
 	/**

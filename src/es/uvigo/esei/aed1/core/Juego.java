@@ -95,7 +95,7 @@ public class Juego {
 				}
 			}
 			//Asignacion de puntos de partida
-			jugadorActual.setPuntos(jugadorActual.getPuntos() + 4);
+			jugadorActual.anadirPuntos(4);
 
 			//Cada ronda los puntos del as de oros valen más
 			multiplicador = multiplicador + 2;
@@ -128,7 +128,7 @@ public class Juego {
 		}
 
 		//Suma de los puntos de As al jugador que tenía el As, guardado previamente
-		jugadorAs.setPuntos(jugadorAs.getPuntos() + multiplicador);
+		jugadorAs.anadirPuntos(multiplicador);
 		iu.mostrarMensaje("Se ha colocado el as de oros \n");
 
 		int max = Integer.MIN_VALUE;
