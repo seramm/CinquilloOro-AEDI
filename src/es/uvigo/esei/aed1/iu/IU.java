@@ -150,8 +150,8 @@ public class IU {
 
 	public Carta pedirCarta(Jugador jugador) {
 		String carta = leeString("Carta que quieres poner(El formato es NN-X, donde NN es el número y X la inicial del palo: ");
-		
-                return Carta.stringToCarta(carta);
-                
+
+		return Carta.stringToCarta(carta);
+
 	}
 }

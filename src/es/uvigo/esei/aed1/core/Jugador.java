@@ -17,10 +17,7 @@ public class Jugador {
 
 	private String nombre;
 	private List<Carta> mano = new LinkedList<>();
-        private int puntos = 0;
-        
-        
-        
+	private int puntos = 0;
 
 	/**
 	 * Crea un jugador con su nombre.
@@ -67,20 +64,14 @@ public class Jugador {
 		this.mano = mano;
 	}
 
-        public int getPuntos() {
-            return puntos;
-        }
+	public int getPuntos() {
+		return puntos;
+	}
 
-        public void setPuntos(int puntos) {
-            this.puntos = puntos;
-        }
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
 
-        
-
-
-
-
-        
 	/**
 	 * Añade una carta a la mano del jugador.
 	 *
