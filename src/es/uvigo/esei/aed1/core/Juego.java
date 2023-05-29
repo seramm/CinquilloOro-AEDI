@@ -19,7 +19,7 @@ import java.util.Random;
 public class Juego {
 
 	private final IU iu;
-	private Baraja baraja = new Baraja();
+	private Baraja baraja;
 	private Mesa mesa;
 	private List<Jugador> jugadores = new LinkedList<>();
 	private int multiplicador = 0;
@@ -55,6 +55,7 @@ public class Juego {
 		Jugador jugadorActual = jugadores.get(0);
 
 		while (as == false) {
+			baraja = new Baraja();
 			iu.mostrarMensaje("\nBarajando");
 			baraja.barajarBaraja();		// Barajado
 			iu.mostrarMensaje("Baraja mezclada");
@@ -110,21 +111,11 @@ public class Juego {
 
 			//Reseteo de la mesa y la baraja
 			mesa = new Mesa();
-			baraja = new Baraja();
-			baraja.barajarBaraja();
 
 			//Vaciado de las manos de los jugadores
 			for (Jugador i : jugadores) {
 				i.getMano().clear();
 			}
-
-			//Nuevo reparto de manos
-			while (!baraja.barajaVacia()) {
-				for (Jugador i : jugadores) {
-					i.anadirCarta(baraja.getBaraja().remove(0)); // Añadido de la primera carta de la baraja a la mano del jugador.
-				}
-			}
-
 		}
 
 		//Suma de los puntos de As al jugador que tenía el As, guardado previamente
