@@ -66,7 +66,7 @@ public class Carta {
 			charPalo = splitCarta[1].toUpperCase().charAt(0);
 			num = Integer.parseInt(splitCarta[0]);
 		} else {
-			charPalo = carta.charAt(carta.length() - 1);
+			charPalo = carta.toUpperCase().charAt(carta.length() - 1);
 			carta = carta.substring(0, carta.length()-1);
 			num = Integer.parseInt(carta);
 		}
