@@ -80,6 +80,16 @@ public class Carta {
 		return toret;
 	}
 
+	public boolean cartaProxima(Carta carta) {
+		boolean toret = false;
+		if (this.palo == carta.getPalo()) {
+			if(this.numero == carta.numero - 1 || this.numero == carta.numero + 1) {
+				toret = true;
+			}
+		}
+		return toret;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder toret = new StringBuilder();

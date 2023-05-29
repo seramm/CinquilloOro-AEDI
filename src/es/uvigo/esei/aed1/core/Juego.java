@@ -24,7 +24,7 @@ public class Juego {
 	private List<Jugador> jugadores = new LinkedList<>();
 	private int multiplicador = 0;
 	private Jugador jugadorAs;
-	private boolean As = false;
+	private boolean as = false;
 
 	/**
 	 * Crea un juego con su interfaz de usuario.
@@ -54,7 +54,7 @@ public class Juego {
 		//Indice del jugador actual
 		Jugador jugadorActual = jugadores.get(0);
 
-		while (As == false) {
+		while (as == false) {
 			iu.mostrarMensaje("\nBarajando");
 			baraja.barajarBaraja();		// Barajado
 			iu.mostrarMensaje("Baraja mezclada");
@@ -102,7 +102,7 @@ public class Juego {
 
 			iu.mostrarMensaje(mesa.toStringGraph());
 			iu.mostrarMensaje("El ganador es: " + jugadorActual.getNombre() + "\n");
-			if (As == true) {
+			if (as == true) {
 				break;
 			}
 			iu.mostrarMensaje(iu.separador);
@@ -158,7 +158,7 @@ public class Juego {
 
 				if (jugador.tieneCarta(carta)) {
 					if (carta.equals(new Carta(1, Carta.PALOS.OROS))) {
-						As = true;
+						as = true;
 					}
 					puede = mesa.ponerCarta(carta);
 					jugador.quitarCarta(carta);
@@ -202,10 +202,10 @@ public class Juego {
 				for (int j = 0; j < jugador.getMano().size(); j++) {
 					if (mesa.getCartas()[i].peekFirst() == null || mesa.getCartas()[i].peekLast() == null) {
 						break;
-					} else if (mesa.getCartas()[i].peekFirst().getNumero() == jugador.getMano().get(j).getNumero() + 1 && mesa.getCartas()[i].peekFirst().getPalo() == jugador.getMano().get(j).getPalo()) {
+					} else if (mesa.getCartas()[i].peekFirst().cartaProxima(jugador.getMano().get(j))) {
 						puede = true;
 						break;
-					} else if (mesa.getCartas()[i].peekLast().getNumero() == jugador.getMano().get(j).getNumero() - 1 && mesa.getCartas()[i].peekLast().getPalo() == jugador.getMano().get(j).getPalo()) {
+					} else if (mesa.getCartas()[i].peekLast().cartaProxima(jugador.getMano().get(j))) {
 						puede = true;
 						break;
 					}
