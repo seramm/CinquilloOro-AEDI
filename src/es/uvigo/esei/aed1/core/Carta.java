@@ -55,13 +55,24 @@ public class Carta {
 	public static Carta stringToCarta(String carta) {
 		boolean encontrado = false;
 		PALOS[] palos = PALOS.values();
+		String[] splitCarta;
 
-		String[] splitCarta = carta.split("-");
-		int num = Integer.parseInt(splitCarta[0]);
+		int num;
+		char charPalo;
 		PALOS paloCarta = PALOS.BASTOS;
 
+		if(carta.contains("-")) {
+			splitCarta = carta.split("-");
+			charPalo = splitCarta[1].toUpperCase().charAt(0);
+			num = Integer.parseInt(splitCarta[0]);
+		} else {
+			charPalo = carta.charAt(carta.length() - 1);
+			carta = carta.substring(0, carta.length()-1);
+			num = Integer.parseInt(carta);
+		}
+
 		for (int i = 0; i < palos.length && !encontrado; i++) {
-			if (splitCarta[1].toUpperCase().charAt(0) == palos[i].toString().charAt(0)) {
+			if (charPalo == palos[i].toString().charAt(0)) {
 				paloCarta = palos[i];
 				encontrado = true;
 			}

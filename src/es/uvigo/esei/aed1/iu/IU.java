@@ -149,9 +149,21 @@ public class IU {
 	}
 
 	public Carta pedirCarta(Jugador jugador) {
-		String carta = leeString("Carta que quieres poner(El formato es NN-X, donde NN es el número y X la inicial del palo: ");
+		Carta toret = null;
+		boolean valido;
 
-		return Carta.stringToCarta(carta);
+		
+		do {
+			try {
+				String carta = leeString("Carta que quieres poner(El formato es NN-X, donde NN es el número y X la inicial del palo: ");
+				toret = Carta.stringToCarta(carta);
+				valido = true;
+			} catch(NumberFormatException exc) {
+				valido = false;
+			}
+		} while(!valido);
+
+		return toret;
 
 	}
 }

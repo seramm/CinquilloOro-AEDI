@@ -21,22 +21,21 @@ public class Mesa {
 	}
 
 	public boolean ponerCarta(Carta carta) {
-		Deque<Carta> dequeCarta = cartas[carta.getPalo().ordinal()];
 		boolean toret = true;
 
-		if (dequeCarta.isEmpty()) {
+		if (cartas[carta.getPalo().ordinal()].isEmpty()) {
 			if (carta.getNumero() == 5) {
-				dequeCarta.add(carta);
+				cartas[carta.getPalo().ordinal()].add(carta);
 				System.out.println("Has puesto la carta inicial " + carta.toString());
 			} else {
 				System.out.println("Carta no válida.");
 				toret = false;
 			}
-		} else if (carta.getNumero() == (dequeCarta.getFirst().getNumero() - 1)) {
-			dequeCarta.addFirst(carta);
+		} else if (carta.getNumero() == (cartas[carta.getPalo().ordinal()].getFirst().getNumero() - 1)) {
+			cartas[carta.getPalo().ordinal()].addFirst(carta);
 			System.out.println("Has puesto la carta " + carta.toString());
-		} else if (carta.getNumero() == (dequeCarta.getLast().getNumero() + 1)) {
-			dequeCarta.addLast(carta);
+		} else if (carta.getNumero() == (cartas[carta.getPalo().ordinal()].getLast().getNumero() + 1)) {
+			cartas[carta.getPalo().ordinal()].addLast(carta);
 			System.out.println("Has puesto la carta " + carta.toString());
 		} else {
 			System.out.println("La carta " + carta.toString() + " no es válida.");
