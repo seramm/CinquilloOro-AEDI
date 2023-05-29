@@ -152,7 +152,9 @@ public class Juego {
 						as = true;
 					}
 					puede = mesa.ponerCarta(carta);
-					jugador.quitarCarta(carta);
+					if(puede) {
+						jugador.quitarCarta(carta);
+					}
 
 				} else {
 					iu.mostrarMensaje("No tienes la carta " + carta.toString());
