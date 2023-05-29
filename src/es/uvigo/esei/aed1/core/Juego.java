@@ -140,6 +140,7 @@ public class Juego {
                     if(i.getPuntos() > max){
                         max = i.getPuntos();
                     }
+                    iu.mostrarMensaje(i.getNombre() + ": " + i.getPuntos() + "\n");
                 }
                 iu.mostrarMensaje("Ganador/es: \n");
                 for(Jugador i : jugadores){
@@ -158,15 +159,16 @@ public class Juego {
 		iu.mostrarTurno(jugador, mesa);
                 
                 if(puedeSeguir(jugador) == true){
-		                  while (puede == false) {
+		    while (puede == false) {
                         carta = iu.pedirCarta(jugador);
 
                         if (jugador.getMano().contains(carta)) {
-                            puede = mesa.ponerCarta(carta);
-                            jugador.quitarCarta(carta);
-                            if(carta == new Carta(1, Carta.PALOS.OROS)){
+                            if(carta.getNumero() == 1 && carta.getPalo() == Carta.PALOS.OROS){
                                 As = true;
                             }
+                            puede = mesa.ponerCarta(carta);
+                            jugador.quitarCarta(carta);
+                           
 
                         } else {
                             iu.mostrarMensaje("No tienes la carta " + carta.toString());
